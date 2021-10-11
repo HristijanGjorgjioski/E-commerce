@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
         [theme.breakpoints.up('sm')]: {
             width: `calc(100% - ${drawerWidth}px`,
             marginLeft: drawerWidth
-        },
+        }
     },
     title: {
         flexGrow: 1,
@@ -17,5 +17,5 @@ export default makeStyles((theme) => ({
         display: 'flex',
         textDecoration: 'none',
     },
-    image: { marginRight: '10px' }
+    image: { marginRight: '10px' },
 }))
