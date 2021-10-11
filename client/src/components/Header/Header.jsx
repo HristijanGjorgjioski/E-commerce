@@ -19,7 +19,14 @@ const Header = () => {
 
   const renderMobileMenu = (
     <Menu anchorEl={mobileMoreAnchorEl} anchorOrigin={{ vertical: 'top', horizontal: 'right' }} id={mobileMenuId} keepMounted transformOrigin={{ vertical: 'top', horizontal: 'right' }} open={isMobileMenuOpen} onClose={handleMobileMenuClose}>
-
+      <MenuItem>
+        <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
+          <Badge badgeContent={2} color="secondary">
+            <ShoppingCart />
+          </Badge>
+        </IconButton>
+        <p>Cart</p>
+      </MenuItem>
     </Menu>
   )
 
@@ -34,7 +41,7 @@ const Header = () => {
             {location.pathname === '/' && (
               <div className={classes.button}>
                 <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
-                  <Badge badgeContent={''} color="secondary">
+                  <Badge badgeContent={6} color="secondary">
                     <ShoppingCart />
                   </Badge>
                 </IconButton>
@@ -42,6 +49,7 @@ const Header = () => {
             )}
           </Toolbar>
         </AppBar>
+        {renderMobileMenu}
       </>
   )
 }
