@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography, Box } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
 import { Link, useLocation } from 'react-router-dom'
 
@@ -35,8 +35,8 @@ const Header = () => {
   const adminMenu = (
     <AppBar position="fixed" className={classes.appBar} color="inherit">
       <Toolbar>
-        <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
-          <img src={admin} alt="gjorgjioski admin" height="35px" className={classes.image} /> Admin
+        <Typography component={Link} to="/" variant="h6" className={classes.title} style={{ textDecoration: 'none' }} color="inherit">
+          <img src={admin} alt="gjorgjioski admin" height="25px" className={classes.image} /> Admin
         </Typography>
       </Toolbar>
     </AppBar>
@@ -49,7 +49,7 @@ const Header = () => {
         ) : (
         <AppBar position="fixed" className={classes.appBar} color="inherit">
           <Toolbar>
-            <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
+            <Typography component={Link} to="/" variant="h6" className={classes.title} style={{ textDecoration: 'none' }} color="inherit">
               <img src={logo} alt="gjorgjioski commerce" height="25px" className={classes.image} /> Commerce.js
             </Typography>
             <div className={classes.grow} />
