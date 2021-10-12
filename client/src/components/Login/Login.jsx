@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { Button, Paper, TextField, Typography } from '@material-ui/core'
 
+import { login } from '../../actions/auth'
+import { AUTH } from '../../constants/actionTypes'
 import useStyles from './styles'
 
+const initialState = { username: '', password: '' }
+
 const Login = () => {
+    const [loginData, setLoginData] = useState(initialState)
     const classes = useStyles()
-    const [loginData, setLoginData] = useState({ username: '', password: '' })
+    const dispatch = useDispatch()
 
     const handleSubmit = () => {};
 
