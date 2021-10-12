@@ -3,7 +3,7 @@ import * as api from '../api/index.js'
 
 export const login = (formData, router) => async (dispatch) => {
     try {
-        const { data } = api.logIn(formData)
+        const { data } = await api.logIn(formData)
 
         dispatch({ type: AUTH, data })
 
