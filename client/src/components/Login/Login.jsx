@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom'
 import { Button, Paper, TextField, Typography } from '@material-ui/core'
 
 import { login } from '../../actions/auth'
-import { AUTH } from '../../constants/actionTypes'
 import useStyles from './styles'
 
 const initialState = { username: '', password: '' }
