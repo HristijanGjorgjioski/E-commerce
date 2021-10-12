@@ -25,8 +25,8 @@ const Login = () => {
         <Paper className={classes.paper} elevation={6}>
             <form autoComplete="off" className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
                 <Typography variant="h6">Admin Login</Typography>
-                <TextField name="username" variant="outlined" label="Username" fullWidth value={loginData.username} onChange={(e) => setLoginData({ ...loginData, username: e.target.value })} />
-                <TextField name="password" variant="outlined" label="Password" fullWidth value={loginData.password} onChange={(e) => setLoginData({ ...loginData, password: e.target.value })} />
+                <TextField name="username" variant="outlined" label="Username" type="text" fullWidth value={loginData.username} onChange={(e) => setLoginData({ ...loginData, username: e.target.value })} />
+                <TextField name="password" variant="outlined" label="Password" type="password" fullWidth value={loginData.password} onChange={(e) => setLoginData({ ...loginData, password: e.target.value })} />
                 <Button className={''} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
             </form>
         </Paper>

@@ -12,7 +12,7 @@ const App = () => {
         <CssBaseline />
         <Header />
         <Switch>
-          <Route exact="/login">
+          <Route exact path="/login">
             <Login />
           </Route>
         </Switch>
