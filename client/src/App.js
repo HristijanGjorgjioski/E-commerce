@@ -8,7 +8,7 @@ import Login from './components/Login/Login'
 const App = () => {
   return (
     <Router>
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
         <CssBaseline />
         <Header />
         <Switch>
