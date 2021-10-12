@@ -10,7 +10,11 @@ export default makeStyles((theme) => ({
   },
   mainDiv: {
     display: 'block',
-    justifyContent: 'center'
+    justifyContent: 'center',
+  },
+  linkText: {
+    textDecoration: 'none',
+    color: 'blue'
   },
   [theme.breakpoints.down('sm')]: {
     paper: {
