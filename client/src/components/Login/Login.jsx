@@ -11,10 +11,15 @@ const initialState = { username: '', password: '' }
 
 const Login = () => {
     const [loginData, setLoginData] = useState(initialState)
-    const classes = useStyles()
     const dispatch = useDispatch()
+    const history = useHistory()
+    const classes = useStyles()
 
-    const handleSubmit = () => {};
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        dispatch(login(loginData, history))
+    };
 
     return (
         <Paper className={classes.paper} elevation={6}>
