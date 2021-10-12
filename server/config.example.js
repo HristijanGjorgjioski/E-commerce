@@ -1,3 +1,3 @@
 module.exports = {
-    MONGO_URL: 'your@url'
+    MONGO_URL: 'your@url',
 }
