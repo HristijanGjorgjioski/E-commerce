@@ -4,9 +4,11 @@ import { ShoppingCart } from '@material-ui/icons';
 import { Link, useLocation } from 'react-router-dom'
 
 import logo from '../../assets/commerce.png'
+import admin from '../../assets/admin.png'
 import useStyles from './styles'
 
 const Header = () => {
+  const user= JSON.parse(localStorage.getItem('profile'))
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null)
   const classes = useStyles()
   const location = useLocation()
@@ -30,8 +32,21 @@ const Header = () => {
     </Menu>
   )
 
+  const adminMenu = (
+    <AppBar position="fixed" className={classes.appBar} color="inherit">
+      <Toolbar>
+        <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
+          <img src={admin} alt="gjorgjioski admin" height="35px" className={classes.image} /> Admin
+        </Typography>
+      </Toolbar>
+    </AppBar>
+  )
+
   return (
       <>
+        {user ? (
+          adminMenu
+        ) : (
         <AppBar position="fixed" className={classes.appBar} color="inherit">
           <Toolbar>
             <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
@@ -49,6 +64,7 @@ const Header = () => {
             )}
           </Toolbar>
         </AppBar>
+        )}
         {renderMobileMenu}
       </>
   )
