@@ -32,10 +32,10 @@ const Header = () => {
 
   return (
       <>
-        <AppBar position='fixed' className={classes.appBar} color="inherit">
+        <AppBar position="fixed" className={classes.appBar} color="inherit">
           <Toolbar>
             <Typography component={Link} to="/" variant="h6" className={classes.title} color="inherit">
-              <img src={logo} alt="gjorgjioski e-commerce" height="25px" className={classes.image} /> Gjorgjioski
+              <img src={logo} alt="gjorgjioski commerce" height="25px" className={classes.image} /> Commerce.js
             </Typography>
             <div className={classes.grow} />
             {location.pathname === '/' && (
