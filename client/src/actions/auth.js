@@ -12,3 +12,15 @@ export const login = (formData, router) => async (dispatch) => {
         console.log(error)
     }
 }
+
+export const createAdmin = (formData, router) => async (dispatch) => {
+    try {
+        const { data } = await api.createAdmin(formData)
+
+        dispatch({ type: AUTH, data })
+
+        router.push('/')
+    } catch (error) {
+        console.log(error)
+    }
+}
