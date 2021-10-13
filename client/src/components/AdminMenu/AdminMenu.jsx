@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Paper, Typography } from '@material-ui/core'
+import { ExitToApp, ListAlt, PersonAdd, PostAdd } from '@material-ui/icons'
+import { useDispatch } from 'react-redux'
+import { Link, useHistory } from 'react-router-dom'
 
 import useStyles from './styles'
-import { ExitToApp, ListAlt, PersonAdd, PostAdd } from '@material-ui/icons'
-import { Link } from 'react-router-dom'
+import * as actionType from '../../constants/actionTypes'
 
 const AdminMenu = () => {
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+    const dispatch = useDispatch()
+    const history = useHistory()
     const classes = useStyles()
+
+    const logout = () => {
+        dispatch({ type: actionType.LOGOUT })
+    }
 
     return (
         <Paper className={classes.paper} elevation={6}>
