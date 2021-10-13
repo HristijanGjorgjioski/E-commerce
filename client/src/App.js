@@ -1,6 +1,7 @@
 import { CssBaseline } from '@material-ui/core'
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import AddAdmin from './components/Admin/AddAdmin/AddAdmin'
 import AdminMenu from './components/AdminMenu/AdminMenu'
 
 import Header from './components/Header/Header'
@@ -18,6 +19,9 @@ const App = () => {
           <Switch>
             <Route exact path="/">
               <AdminMenu />
+            </Route>
+            <Route exact path="/addadmin">
+              <AddAdmin />
             </Route>
           </Switch>
         ) : (
