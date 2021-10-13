@@ -6,6 +6,7 @@ import AdminMenu from './components/AdminMenu/AdminMenu'
 
 import Header from './components/Header/Header'
 import Login from './components/Login/Login'
+import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem('profile'))
@@ -16,12 +17,9 @@ const App = () => {
         <CssBaseline />
         <Header />
           <Switch>
-            <Route exact path="/">
-              <br /> <br /> <h1>HOME USER</h1>
-            </Route>
-            <Route exact path="/admin">
-              <AdminMenu />
-            </Route>
+            <PrivateRoute component={AdminMenu} exact path="/admin" />
+            <PrivateRoute component={AddAdmin} exact path="/addadmin" />
+            <PrivateRoute component={''} exact path="/addproduct" />
             <Route exact path="/login">
               <Login />
             </Route>

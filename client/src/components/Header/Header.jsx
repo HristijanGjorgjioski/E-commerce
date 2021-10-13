@@ -35,7 +35,7 @@ const Header = () => {
   const adminMenu = (
     <AppBar position="fixed" className={classes.appBar} color="inherit">
       <Toolbar>
-        <Typography component={Link} to="/" variant="h6" className={classes.title} style={{ textDecoration: 'none' }} color="inherit">
+        <Typography component={Link} to="/admin" variant="h6" className={classes.title} style={{ textDecoration: 'none' }} color="inherit">
           <img src={admin} alt="gjorgjioski admin" height="25px" className={classes.image} /> Admin
         </Typography>
       </Toolbar>
