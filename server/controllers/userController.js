@@ -14,7 +14,7 @@ export const login = async (req, res) => {
 
         if(!isPasswordCorrect) return res.status(400).json({ message: 'Invalid credentials' })
 
-        return res.status(200).json({ oldUser })
+        return res.status(200).json({ result: oldUser })
     } catch (error) {
         res.status(500).json({ message: "Something went wrong!" })
     }

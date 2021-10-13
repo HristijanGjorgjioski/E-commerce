@@ -25,8 +25,8 @@ const AdminMenu = () => {
         <Paper className={classes.paper} elevation={6}>
             <div className={classes.mainDiv}>
                 <Typography variant="h6"><PersonAdd /><Link to='/addadmin' className={classes.linkText}> Add Admin</Link></Typography>
-                <Typography variant="h6"><ListAlt /><Link to='/allproducts' className={classes.linkText}> List All Products</Link></Typography>
                 <Typography variant="h6"><PostAdd /><Link to='/addproduct' className={classes.linkText}> Add Product</Link></Typography>
+                <Typography variant="h6"><ListAlt /><Link to='/allproducts' className={classes.linkText}> List All Products</Link></Typography>
                 <Button style={{ marginLeft: '25px' }} variant="contained" color="secondary" onClick={logout}>Logout - {user?.result?.username}</Button>
             </div>
         </Paper>

@@ -15,22 +15,17 @@ const App = () => {
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <CssBaseline />
         <Header />
-        {user ? (
           <Switch>
             <Route exact path="/">
+              <br /> <br /> <h1>HOME USER</h1>
+            </Route>
+            <Route exact path="/admin">
               <AdminMenu />
             </Route>
-            <Route exact path="/addadmin">
-              <AddAdmin />
-            </Route>
-          </Switch>
-        ) : (
-          <Switch>
             <Route exact path="/login">
               <Login />
             </Route>
           </Switch>
-          )}
       </div>
     </Router>
   )

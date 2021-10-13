@@ -7,7 +7,7 @@ export const login = (formData, router) => async (dispatch) => {
 
         dispatch({ type: AUTH, data })
 
-        router.push('/')
+        router.push('/admin')
     } catch (error) {
         console.log(error)
     }
@@ -19,7 +19,7 @@ export const createAdmin = (formData, router) => async (dispatch) => {
 
         dispatch({ type: AUTH, data })
 
-        router.push('/')
+        router.push('/admin')
     } catch (error) {
         console.log(error)
     }
