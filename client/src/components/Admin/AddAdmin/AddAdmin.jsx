@@ -1,15 +1,23 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router'
 import { Paper, Typography, TextField, Button } from '@material-ui/core'
 
+import { createAdmin } from '../../../actions/auth'
 import useStyles from './styles'
+
 const initialState = { username: '', password: '' }
 
 const AddAdmin = () => {
     const [adminData, setAdminData] = useState(initialState)
+    const dispatch = useDispatch()
+    const history = useHistory()
     const classes = useStyles()
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        dispatch(createAdmin(adminData, history))
     }
 
     return (

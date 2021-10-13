@@ -1,3 +1,5 @@
+import bcrypt from 'bcryptjs'
+
 import User from "../models/userModel.js"
 
 export const login = async (req, res) => {
@@ -8,9 +10,9 @@ export const login = async (req, res) => {
 
         if(!oldUser) return res.status(404).json({ message: "User does not exist" })
 
-        // const isPasswordCorrect = await bcrypt.compare(password, oldUser.password)
+        const isPasswordCorrect = await bcrypt.compare(password, oldUser.password)
 
-        // if(!isPasswordCorrect) return res.status(400).json({ message: 'Invalid credentials' })
+        if(!isPasswordCorrect) return res.status(400).json({ message: 'Invalid credentials' })
 
         return res.status(200).json({ oldUser })
     } catch (error) {
@@ -22,7 +24,7 @@ export const createAdmin = async (req, res) => {
     const { username, password } = req.body
 
     try {
-        const oldUser = await User.findOne({ email });
+        const oldUser = await User.findOne({ username });
     
         if (oldUser) return res.status(400).json({ message: "User already exists" });
     
