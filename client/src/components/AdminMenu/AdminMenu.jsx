@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Paper, Typography } from '@material-ui/core'
-import { ExitToApp, ListAlt, PersonAdd, PostAdd } from '@material-ui/icons'
+import { Button, Paper, Typography } from '@material-ui/core'
+import { ListAlt, PersonAdd, PostAdd } from '@material-ui/icons'
 import { useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
@@ -15,6 +15,10 @@ const AdminMenu = () => {
 
     const logout = () => {
         dispatch({ type: actionType.LOGOUT })
+
+        history.push('/')
+
+        setUser(null)
     }
 
     return (
@@ -23,7 +27,7 @@ const AdminMenu = () => {
                 <Typography variant="h6"><PersonAdd /><Link to='/addadmin' className={classes.linkText}> Add Admin</Link></Typography>
                 <Typography variant="h6"><ListAlt /><Link to='/allproducts' className={classes.linkText}> List All Products</Link></Typography>
                 <Typography variant="h6"><PostAdd /><Link to='/addproduct' className={classes.linkText}> Add Product</Link></Typography>
-                <Typography variant="h6"><ExitToApp /><Link to='/' className={classes.linkText}> Logout</Link></Typography>
+                <Button style={{ marginLeft: '25px' }} variant="contained" color="secondary" onClick={logout}>Logout - {user?.result?.username}</Button>
             </div>
         </Paper>
     )
