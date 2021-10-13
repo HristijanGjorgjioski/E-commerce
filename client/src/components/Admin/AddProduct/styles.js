@@ -23,4 +23,11 @@ export default makeStyles((theme) => ({
   buttonSubmit: {
     marginBottom: 10,
   },
+  [theme.breakpoints.down('sm')]: {
+    paper: {
+      padding: theme.spacing(2),
+      marginTop: '30%',
+      width: '95%'
+    }
+  }
 }));

@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Paper, Typography } from '@material-ui/core'
 
 import useStyles from './styles'
 
 const AddProduct = () => {
+    const [productData, setProductData] = useState({ title: '', description: '', tags: [], selection: '', selectedFile: '', price: '', size: '' })
     const classes = useStyles()
+    const user = JSON.parse(localStorage.getItem('profile'))
 
     const handleSubmit = () => {
 
