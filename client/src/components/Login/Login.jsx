@@ -26,7 +26,7 @@ const Login = () => {
                 <Typography variant="h6">Admin Login</Typography>
                 <TextField name="username" variant="outlined" label="Username" type="text" fullWidth value={loginData.username} onChange={(e) => setLoginData({ ...loginData, username: e.target.value })} />
                 <TextField name="password" variant="outlined" label="Password" type="password" fullWidth value={loginData.password} onChange={(e) => setLoginData({ ...loginData, password: e.target.value })} />
-                <Button className={''} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
+                <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
             </form>
         </Paper>
     )
