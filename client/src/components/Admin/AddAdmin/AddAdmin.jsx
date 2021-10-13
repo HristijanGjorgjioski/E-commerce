@@ -8,8 +8,8 @@ const AddAdmin = () => {
     const [adminData, setAdminData] = useState(initialState)
     const classes = useStyles()
 
-    const handleSubmit = () => {
-
+    const handleSubmit = (e) => {
+        e.preventDefault()
     }
 
     return (
