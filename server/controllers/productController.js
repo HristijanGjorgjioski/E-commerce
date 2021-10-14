@@ -8,7 +8,7 @@ export const createProduct = async (req, res) => {
             title,
             description,
             price,
-            collection,
+            selection: collection,
             size,
             imageUrl,
             createdBy,
