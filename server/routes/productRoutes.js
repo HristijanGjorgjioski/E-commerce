@@ -4,6 +4,6 @@ import { createProduct } from '../controllers/productController.js'
 
 const router = express.Router()
 
-router.post('/createproduct', createProduct)
+router.post('/', createProduct)
 
 export default router

@@ -1,13 +1,14 @@
-import { CREATE_PRODUCT } from '../constants/actionTypes'
+import { CREATE_PRODUCT, START_LOADING } from '../constants/actionTypes'
 import * as api from '../api/index.js'
 
-export const createProduct = (formData, router) => async (dispatch) => {
+export const createProduct = (product, history) => async (dispatch) => {
     try {
-        const { data } = await api.createProduct(formData)
+        dispatch({ type: START_LOADING })
+        const { data } = await api.createProduct(product)
 
-        dispatch({ type: CREATE_PRODUCT, data })
+        dispatch({ type: CREATE_PRODUCT, payload: data })
 
-        router.push('/admin')
+        history.push('/admin')
     } catch (error) {
         console.log(error)
     }
