@@ -1,23 +1,30 @@
 import React, { useState } from 'react'
 import { Button, FormControl, InputLabel, MenuItem, Paper, Select, TextField, Typography } from '@material-ui/core'
 import FileBase from 'react-file-base64'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router'
 
 import useStyles from './styles'
+import { createProduct } from '../../../api'
 
 const data = [{ name: 'Hats' }, { name: 'Female Shoes' }]
-const size = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
+const sizeData = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
 
 const AddProduct = () => {
     const [productData, setProductData] = useState({ title: '', description: '', selection: '', selectedFile: '', price: '', size: '', createdBy: {} })
     const classes = useStyles()
+    const dispatch = useDispatch()
+    const history = useHistory()
     const user = JSON.parse(localStorage.getItem('profile'))
 
     const clear = () => {
-        setProductData({ title: '', description: '', selectedFile: '', size: '', selection: '', price: '' });
+        setProductData({ title: '', description: '', selectedFile: '', size: 'M', selection: '', price: '' });
       };
 
-    const handleSubmit = () => {
-        
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        dispatch(createProduct(productData, history));
     }
 
     return (
@@ -46,7 +53,7 @@ const AddProduct = () => {
                             id="size-label-id"
                             label="Size"
                         >
-                            {size.map((s) => <MenuItem key={s.name} value={s.name} onChange={(e) => setProductData({ ...productData, size: e.target.value })}>{s}</MenuItem>)}
+                            {sizeData.map((s) => <MenuItem key={s.name} value={s.name} onChange={(e) => setProductData({ ...productData, size: e.target.value })}>{s}</MenuItem>)}
                         </Select>
                     </FormControl>
                 </div>

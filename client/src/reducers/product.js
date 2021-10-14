@@ -1,11 +1,11 @@
 import * as actionType from '../constants/actionTypes'
 
-const productReducer = (state = { isLoading: true, posts: [] }, action) => {
+const productReducer = (state = { isLoading: true, products: [] }, action) => {
     switch (actionType) {
         case actionType.CREATE_PRODUCT:
-            return { ...state, posts: [...state.posts, action.payload] }
+            return { ...state, products: [...state.products, action.payload] };
         default:
-            return state
+            return state;
     }
 }
 
