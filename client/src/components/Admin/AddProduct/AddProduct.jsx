@@ -25,6 +25,7 @@ const AddProduct = () => {
         e.preventDefault()
 
         dispatch(createProduct(productData, history));
+        clear();
     }
 
     return (
