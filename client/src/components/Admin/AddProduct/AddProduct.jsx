@@ -11,8 +11,12 @@ const AddProduct = () => {
     const classes = useStyles()
     const user = JSON.parse(localStorage.getItem('profile'))
 
-    const handleSubmit = () => {
+    const clear = () => {
+        setProductData({ title: '', description: '', selectedFile: '', size: '', selection: '', price: '' });
+      };
 
+    const handleSubmit = () => {
+        
     }
 
     return (
@@ -35,6 +39,7 @@ const AddProduct = () => {
                 </FormControl>
                 <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setProductData({ ...productData, selectedFile: base64 })} /></div>
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
+                <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
             </form>
         </Paper>
     )
