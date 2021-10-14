@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 
 import userRoutes from './routes/userRoutes.js'
-import productRoutes from './routes/userRoutes.js' 
+import productRoutes from './routes/productRoutes.js' 
 import { MONGO_URL, PORT } from './config.js'
 
 const app = express()
