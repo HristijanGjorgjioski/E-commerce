@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import AddAdmin from './components/Admin/AddAdmin/AddAdmin'
 import AddProduct from './components/Admin/AddProduct/AddProduct'
-import AdminMenu from './components/AdminMenu/AdminMenu'
+import AdminMenu from './components/Admin/AdminMenu/AdminMenu'
 
 import Header from './components/Header/Header'
 import Login from './components/Login/Login'

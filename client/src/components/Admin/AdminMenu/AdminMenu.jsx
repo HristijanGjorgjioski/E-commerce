@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
 import useStyles from './styles'
-import * as actionType from '../../constants/actionTypes'
+import * as actionType from '../../../constants/actionTypes'
 
 const AdminMenu = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
