@@ -8,3 +8,5 @@ const productReducer = (state = { isLoading: true, posts: [] }, action) => {
             return state
     }
 }
+
+export default productReducer
