@@ -23,6 +23,12 @@ export default makeStyles((theme) => ({
   buttonSubmit: {
     marginBottom: 10,
   },
+  selectDiv: {
+    padding: theme.spacing(1),
+    display: 'flex',
+    flexGrow: 2,
+    justifyContent: 'space-between',
+  },
   [theme.breakpoints.down('sm')]: {
     paper: {
       padding: theme.spacing(2),

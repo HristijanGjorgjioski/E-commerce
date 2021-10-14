@@ -28,26 +28,28 @@ const AddProduct = () => {
                 <TextField required name="title" variant="outlined" label="Title" fullWidth value={productData.title} onChange={(e) => setProductData({ ...productData, title: e.target.value })} />
                 <TextField required name="description" variant="outlined" label="Description" fullWidth multiline rows={4} value={productData.description} onChange={(e) => setProductData({ ...productData, description: e.target.value })} />
                 <TextField required name="price" type="number" variant="outlined" label="Price $" fullWidth value={productData.price} onChange={(e) => setProductData({ ...productData, price: e.target.value })} />
-                <FormControl required style={{ width: '46%' }}>
-                    <InputLabel id="collection-label">Collection</InputLabel>
-                    <Select
-                        labelId="collection-label"
-                        id="collection-label-id"
-                        label="Collection"
-                    >
-                        {data.map((d) => <MenuItem key={d.name} value={d.name} onChange={(e) => setProductData({ ...productData, selection: e.target.value })}>{d.name}</MenuItem>)}
-                    </Select>
-                </FormControl>
-                <FormControl required style={{ width: '46%' }}>
-                    <InputLabel id="size-label">Size</InputLabel>
-                    <Select
-                        labelId="size-label"
-                        id="size-label-id"
-                        label="Size"
-                    >
-                        {size.map((s) => <MenuItem key={s.name} value={s.name} onChange={(e) => setProductData({ ...productData, size: e.target.value })}>{s}</MenuItem>)}
-                    </Select>
-                </FormControl>
+                <div className={classes.selectDiv}>
+                    <FormControl required style={{ width: '46%' }}>
+                        <InputLabel id="collection-label">Collection</InputLabel>
+                        <Select
+                            labelId="collection-label"
+                            id="collection-label-id"
+                            label="Collection"
+                        >
+                            {data.map((d) => <MenuItem key={d.name} value={d.name} onChange={(e) => setProductData({ ...productData, selection: e.target.value })}>{d.name}</MenuItem>)}
+                        </Select>
+                    </FormControl>
+                    <FormControl required style={{ width: '46%' }}>
+                        <InputLabel id="size-label">Size</InputLabel>
+                        <Select
+                            labelId="size-label"
+                            id="size-label-id"
+                            label="Size"
+                        >
+                            {size.map((s) => <MenuItem key={s.name} value={s.name} onChange={(e) => setProductData({ ...productData, size: e.target.value })}>{s}</MenuItem>)}
+                        </Select>
+                    </FormControl>
+                </div>
                 <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setProductData({ ...productData, selectedFile: base64 })} /></div>
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
                 <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
