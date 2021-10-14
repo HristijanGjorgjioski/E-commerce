@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router'
 
 import useStyles from './styles'
-import { createProduct } from '../../../api'
+import { createProduct } from '../../../actions/product'
 
 const data = [{ name: 'Hats' }, { name: 'Female Shoes' }]
 const sizeData = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
