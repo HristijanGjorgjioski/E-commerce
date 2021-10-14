@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import { FormControl, InputLabel, MenuItem, Paper, Select, TextField, Typography } from '@material-ui/core'
+import { Button, FormControl, InputLabel, MenuItem, Paper, Select, TextField, Typography } from '@material-ui/core'
+import FileBase from 'react-file-base64'
 
 import useStyles from './styles'
 
 const data = [{ name: 'Hats' }, { name: 'Female Shoes' }]
 
 const AddProduct = () => {
-    const [productData, setProductData] = useState({ title: '', description: '', tags: [], selection: '', selectedFile: '', price: '', size: '', createdBy: {} })
+    const [productData, setProductData] = useState({ title: '', description: '', selection: '', selectedFile: '', price: '', size: '', createdBy: {} })
     const classes = useStyles()
     const user = JSON.parse(localStorage.getItem('profile'))
 
@@ -22,7 +23,7 @@ const AddProduct = () => {
                 <TextField required name="title" variant="outlined" label="Title" fullWidth value={productData.title} onChange={(e) => setProductData({ ...productData, title: e.target.value })} />
                 <TextField required name="description" variant="outlined" label="Description" fullWidth multiline rows={4} value={productData.description} onChange={(e) => setProductData({ ...productData, description: e.target.value })} />
                 <TextField required name="price" type="number" variant="outlined" label="Price $" fullWidth value={productData.price} onChange={(e) => setProductData({ ...productData, price: e.target.value })} />
-                <FormControl required style={{ width: '40%' }}>
+                <FormControl required style={{ width: '94%' }}>
                     <InputLabel id="collection-label">Collection</InputLabel>
                     <Select
                         labelId="collection-label"
@@ -32,6 +33,8 @@ const AddProduct = () => {
                         {data.map((d) => <MenuItem key={d.name} value={d.name} onChange={(e) => setProductData({ ...productData, selection: e.target.value })}>{d.name}</MenuItem>)}
                     </Select>
                 </FormControl>
+                <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setProductData({ ...productData, selectedFile: base64 })} /></div>
+                <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
             </form>
         </Paper>
     )
