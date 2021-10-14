@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const postSchema = new Schema({
+const productSchema = new Schema({
   title: {
     type: String, 
     required: true
@@ -14,17 +14,19 @@ const postSchema = new Schema({
     type: String,
     required: true
   },
-  createdBy: {
-    usernamename: {
-      type: String,
-      required: true
-    },
-    userId: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
-    }
-  }
+  price: {
+    type: Number,
+    required: true
+  },
+  size: {
+    type: String,
+    required: true
+  },
+  collection: {
+    type: String,
+    required: true,
+  },
+  createdBy: { type: String, required: true }
 }, { timestamps: true } );
 
-module.exports = mongoose.model('Post', postSchema);
+module.exports = mongoose.model('Product', postSchema);
