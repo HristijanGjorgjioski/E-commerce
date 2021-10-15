@@ -25,7 +25,10 @@ const productSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  createdBy: { type: String, required: true }
+  createdBy: { 
+    type: String, 
+    required: true 
+  }
 }, { timestamps: true } );
 
 export default mongoose.model('Product', productSchema);

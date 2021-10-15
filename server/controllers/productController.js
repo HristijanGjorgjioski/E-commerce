@@ -1,16 +1,16 @@
 import Product from '../models/productModel.js'
 
 export const createProduct = async (req, res) => {
-    const { createdBy, title, description, price, collection, size, imageUrl } = req.body
+    const { createdBy, title, description, price, selection, size, selectedFile } = req.body
 
     try {
         const result = await Product.create({
             title,
             description,
             price,
-            selection: collection,
+            selection,
             size,
-            imageUrl,
+            imageUrl: selectedFile,
             createdBy,
         })
 

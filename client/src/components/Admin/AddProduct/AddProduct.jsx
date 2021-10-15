@@ -43,8 +43,9 @@ const AddProduct = () => {
                             labelId="collection-label"
                             id="collection-label-id"
                             label="Collection"
+                            onChange={(e) => setProductData({ ...productData, selection: e.target.value })}
                         >
-                            {data.map((d) => <MenuItem key={d.name} value={d.name} onChange={(e) => setProductData({ ...productData, selection: e.target.value })}>{d.name}</MenuItem>)}
+                            {data.map((d) => <MenuItem key={d.name} value={d.name}>{d.name}</MenuItem>)}
                         </Select>
                     </FormControl>
                     <FormControl required style={{ width: '46%' }}>
@@ -53,8 +54,9 @@ const AddProduct = () => {
                             labelId="size-label"
                             id="size-label-id"
                             label="Size"
+                            onChange={(e) => setProductData({ ...productData, size: e.target.value })}
                         >
-                            {sizeData.map((s) => <MenuItem key={s} value={s} onChange={(e) => setProductData({ ...productData, size: e.target.value })}>{s}</MenuItem>)}
+                            {sizeData.map((s) => <MenuItem key={s} value={s}>{s}</MenuItem>)}
                         </Select>
                     </FormControl>
                 </div>
