@@ -7,7 +7,7 @@ import { useHistory } from 'react-router'
 import useStyles from './styles'
 import { createProduct } from '../../../actions/product'
 
-const data = [{ name: 'Hats' }, { name: 'Female Shoes' }]
+const collectionData = [{ name: 'Hats' }, { name: 'Female Shoes' }, { name: 'Sneakers' }, { name: 'Winter jackets' }]
 const sizeData = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
 
 const AddProduct = () => {
@@ -46,7 +46,7 @@ const AddProduct = () => {
                             label="Collection"
                             onChange={(e) => setProductData({ ...productData, selection: e.target.value })}
                         >
-                            {data.map((d) => <MenuItem key={d.name} value={d.name}>{d.name}</MenuItem>)}
+                            {collectionData.map((d) => <MenuItem key={d.name} value={d.name}>{d.name}</MenuItem>)}
                         </Select>
                     </FormControl>
                     <FormControl required style={{ width: '46%' }}>
