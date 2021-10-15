@@ -1,5 +1,16 @@
 import Product from '../models/productModel.js'
 
+export const getProducts = async (req, res) => {
+    try {
+        const allProducts = Product.find()
+
+        res.status(201).json({ result: allProducts })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Something went wrong" });
+    }
+}
+
 export const createProduct = async (req, res) => {
     const { createdBy, title, description, price, selection, size, selectedFile } = req.body
 
