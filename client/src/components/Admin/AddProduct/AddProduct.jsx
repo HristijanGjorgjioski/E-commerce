@@ -11,14 +11,15 @@ const data = [{ name: 'Hats' }, { name: 'Female Shoes' }]
 const sizeData = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
 
 const AddProduct = () => {
-    const [productData, setProductData] = useState({ title: '', description: '', selection: '', selectedFile: '', price: '', size: '', createdBy: {} })
+    const user = JSON.parse(localStorage.getItem('profile'))
+    const username = user.result.username
+    const [productData, setProductData] = useState({ title: '', description: '', selection: '', selectedFile: '', price: '', size: '', createdBy: username })
     const classes = useStyles()
     const dispatch = useDispatch()
     const history = useHistory()
-    const user = JSON.parse(localStorage.getItem('profile'))
 
     const clear = () => {
-        setProductData({ title: '', description: '', selectedFile: '', size: '', selection: '', price: '', createdBy: user.result.username });
+        setProductData({ title: '', description: '', selectedFile: '', size: '', selection: '', price: '' });
       };
 
     const handleSubmit = (e) => {
@@ -32,7 +33,7 @@ const AddProduct = () => {
         <Paper className={classes.paper} elevation={6}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
                 <Typography variant="h6">Add Product</Typography>
-                <TextField disabled name="createdBy" variant="outlined" fullWidth value={user?.result?.username} />
+                <TextField disabled name="createdBy" variant="outlined" fullWidth value={username} />
                 <TextField required name="title" variant="outlined" label="Title" fullWidth value={productData.title} onChange={(e) => setProductData({ ...productData, title: e.target.value })} />
                 <TextField required name="description" variant="outlined" label="Description" fullWidth multiline rows={4} value={productData.description} onChange={(e) => setProductData({ ...productData, description: e.target.value })} />
                 <TextField required name="price" type="number" variant="outlined" label="Price $" fullWidth value={productData.price} onChange={(e) => setProductData({ ...productData, price: e.target.value })} />
