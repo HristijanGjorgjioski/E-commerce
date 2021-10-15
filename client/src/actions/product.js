@@ -8,7 +8,7 @@ export const getProducts = () => async(dispatch) => {
         const { data } = await api.getProducts()
         console.log(data)
 
-        dispatch({ type: FETCH_ALL, payload: data })
+        dispatch({ type: FETCH_ALL, payload: { data } })
         dispatch({ type: END_LOADING })
     } catch (error) {
         console.log(error)

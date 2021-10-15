@@ -4,7 +4,7 @@ export const getProducts = async (req, res) => {
     try {
         const allProducts = await Product.find()
 
-        res.status(201).json({ result: allProducts })
+        res.status(201).json({ data: allProducts })
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Something went wrong" });
