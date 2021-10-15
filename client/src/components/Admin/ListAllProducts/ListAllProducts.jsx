@@ -3,11 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../../../actions/product'
 
 const ListAllProducts = () => {
-    const { products, isLoading } = useSelector((state) => state.products)
-
+    // const { products, isLoading } = useSelector((state) => state.products)
+    const dispatch = useDispatch()
     // if(!products.length && !isLoading) return 'No products'
 
-    console.log(products, isLoading)
+    useEffect(() => {
+        dispatch(getProducts())
+    }, [])
+
     return (
         <div>
 

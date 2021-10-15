@@ -22,7 +22,7 @@ const App = () => {
             <PrivateRoute component={AdminMenu} exact path="/admin" />
             <PrivateRoute component={AddAdmin} exact path="/addadmin" />
             <PrivateRoute component={AddProduct} exact path="/addproduct" />
-            <PrivateRoute component={ListAllProducts} exact="/allproducts" />
+            <PrivateRoute component={ListAllProducts} exact path="/allproducts" />
             <Route exact path="/login">
               <Login />
             </Route>
