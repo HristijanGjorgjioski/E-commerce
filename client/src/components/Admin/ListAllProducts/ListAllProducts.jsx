@@ -1,29 +1,35 @@
 import React, { useEffect } from 'react'
+import { Grid, CircularProgress } from '@material-ui/core'
 import { useDispatch, useSelector } from 'react-redux'
+
 import { getProducts } from '../../../actions/product'
 
+import useStyles from './styles'
+
 const ListAllProducts = () => {
+    const classes = useStyles()
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(getProducts())
-    }, [])
+    }, [dispatch])
 
     const { products, isLoading } = useSelector((state) => state.productReducer)
 
-    console.log(useSelector((state) => state))
     console.log(products, isLoading, 'LISTALL')
+
     if(!products.length && !isLoading) return 'No products'
 
-
     return (
-        <div>
-            <div>
+        isLoading ? <CircularProgress /> : (
+            <Grid className={classes.container} container alignItems="stretch" spacing={3}>
                 {products?.map((product) => (
-                    <h1 key={product.id}>{product.title}</h1>
+                    <Grid key={product._id} item xs={12}>
+
+                    </Grid>
                 ))}
-            </div>
-        </div>
+            </Grid>
+        )
     )
 }
 
