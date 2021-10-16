@@ -3,7 +3,7 @@ import { Grid, CircularProgress } from '@material-ui/core'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { getProducts } from '../../../actions/product'
-
+import Product from './Product/Product'
 import useStyles from './styles'
 
 const ListAllProducts = () => {
@@ -24,8 +24,8 @@ const ListAllProducts = () => {
         isLoading ? <CircularProgress /> : (
             <Grid className={classes.container} container alignItems="stretch" spacing={3}>
                 {products?.map((product) => (
-                    <Grid key={product._id} item xs={12}>
-
+                    <Grid key={product._id} item xs={12} md={6} lg={3}>
+                        <Product product={product} />
                     </Grid>
                 ))}
             </Grid>
