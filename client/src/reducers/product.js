@@ -1,14 +1,14 @@
-import * as actionType from '../constants/actionTypes'
+import { CREATE_PRODUCT, END_LOADING, FETCH_ALL, START_LOADING } from '../constants/actionTypes'
 
 const productReducer = (state = { isLoading: true, products: [] }, action) => {
-    switch (actionType) {
-        case actionType.START_LOADING:
+    switch (action.type) {
+        case START_LOADING:
             return { ...state, isLoading: true };
-        case actionType.END_LOADING:
+        case END_LOADING:
             return { ...state, isLoading: false };
-        case actionType.FETCH_ALL:
+        case FETCH_ALL:
             return { ...state, products: action.payload.data }
-        case actionType.CREATE_PRODUCT:
+        case CREATE_PRODUCT:
             return { ...state, products: [...state.products, action.payload] };
         default:
             return state;
