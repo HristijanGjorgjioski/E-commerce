@@ -16,13 +16,13 @@ const ListAllProducts = () => {
 
     const { products, isLoading } = useSelector((state) => state.productReducer)
 
-    console.log(products, isLoading, 'LISTALL')
+    // console.log(products, isLoading, 'LISTALL')
 
     if(!products.length && !isLoading) return 'No products'
 
     return (
         isLoading ? <CircularProgress /> : (
-            <Grid className={classes.container} container alignItems="stretch" spacing={3}>
+            <Grid className={classes.mainContainer} container alignItems="stretch" spacing={3}>
                 {products?.map((product) => (
                     <Grid key={product._id} item xs={12} md={6} lg={3}>
                         <Product product={product} />

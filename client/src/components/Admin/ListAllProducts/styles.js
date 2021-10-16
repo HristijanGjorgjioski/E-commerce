@@ -3,6 +3,7 @@ import { deepPurple } from '@material-ui/core/colors';
 
 export default makeStyles((theme) => ({
   mainContainer: {
+    marginTop: '4%',
     borderRadius: 15,
     margin: '30px 0',
     display: 'flex',
@@ -44,6 +45,9 @@ export default makeStyles((theme) => ({
     backgroundColor: deepPurple[500],
   },
   [theme.breakpoints.down('sm')]: {
+    mainContainer: {
+      marginTop: '13%'
+    },
     appBar: {
       padding: '10px 20px',
     },
