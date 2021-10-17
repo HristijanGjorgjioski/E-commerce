@@ -22,7 +22,7 @@ const App = () => {
           <Switch>
             <PrivateRoute component={AdminMenu} exact path="/admin" />
             <PrivateRoute component={AddAdmin} exact path="/addadmin" />
-            <PrivateRoute component={AddProduct} exact path="/addproduct" />
+            <PrivateRoute component={AddProduct} exact path="/addproduct/:id" />
             <PrivateRoute component={ListAllProducts} exact path="/allproducts" />
             <PrivateRoute component={UpdateProduct} exact path="/update/:id" />
             <Route exact path="/login">

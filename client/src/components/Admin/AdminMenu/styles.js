@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
-    marginTop: '12%',
-    width: '30%',
+    marginTop: '5%',
+    width: '100%',
     display: 'flex',
     justifyContent: 'center',
   },
