@@ -29,9 +29,7 @@ const Header = () => {
           <img src={admin} alt="gjorgjioski admin" height="25px" className={classes.image} />
         </Link>
         <Toolbar className={classes.toolbar}>
-          <div className={classes.profile}>
             <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
-          </div>
         </Toolbar>
     </AppBar>
   )
@@ -46,6 +44,9 @@ const Header = () => {
               <img src={logo} alt="gjorgjioski commerce" height="25px" className={classes.image} />
           </Link>
           <Toolbar className={classes.toolbar}>
+            <Badge style={{ marginRight: '15px' }} badgeContent={2} color="secondary">
+              <ShoppingCart />
+            </Badge>
             <Button component={Link} to="/login" variant="contained" color="primary">Sign In</Button>
           </Toolbar>
         </AppBar>
