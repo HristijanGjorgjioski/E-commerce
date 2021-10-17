@@ -10,18 +10,7 @@ import Products from './Products/Products'
 import Form from './Form/Form'
 
 const Admin = () => {
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
-    const dispatch = useDispatch()
-    const history = useHistory()
     const classes = useStyles()
-
-    const logout = () => {
-        dispatch({ type: actionType.LOGOUT })
-
-        history.push('/')
-
-        setUser(null)
-    }
 
     return (
         <Grow in>

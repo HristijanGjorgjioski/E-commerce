@@ -1,44 +1,38 @@
 import React, { useState } from 'react'
-import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography, Button } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import logo from '../../assets/commerce.png'
-import admin from '../../assets/admin.png'
+import admin from '../../assets/admin.jpg'
 import useStyles from './styles'
+import { useDispatch } from 'react-redux';
+import { LOGOUT } from '../../constants/actionTypes';
 
 const Header = () => {
-  const user= JSON.parse(localStorage.getItem('profile'))
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null)
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+  const dispatch = useDispatch()
+  const history = useHistory()
   const classes = useStyles()
-  const location = useLocation()
 
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
+  const logout = () => {
+    dispatch({ type: LOGOUT })
 
-  const handleMobileMenuClose = () => setMobileMoreAnchorEl(null)
+    history.push('/')
 
-  const mobileMenuId = 'primary-search-account-menu-mobile'
-
-  const renderMobileMenu = (
-    <Menu anchorEl={mobileMoreAnchorEl} anchorOrigin={{ vertical: 'top', horizontal: 'right' }} id={mobileMenuId} keepMounted transformOrigin={{ vertical: 'top', horizontal: 'right' }} open={isMobileMenuOpen} onClose={handleMobileMenuClose}>
-      <MenuItem>
-        <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
-          <Badge badgeContent={2} color="secondary">
-            <ShoppingCart />
-          </Badge>
-        </IconButton>
-        <p>Cart</p>
-      </MenuItem>
-    </Menu>
-  )
+    setUser(null)
+  }
 
   const adminMenu = (
-    <AppBar position="fixed" className={classes.appBar} color="inherit">
-      <Toolbar>
-        <Typography component={Link} to="/admin" variant="h6" className={classes.title} style={{ textDecoration: 'none' }} color="inherit">
-          <img src={admin} alt="gjorgjioski admin" height="25px" className={classes.image} /> Admin
-        </Typography>
-      </Toolbar>
+    <AppBar position="static" className={classes.appBar} color="inherit">
+        <Link to="/admin" className={classes.brandContainer}>
+          <img src={admin} alt="gjorgjioski admin" height="25px" className={classes.image} />
+        </Link>
+        <Toolbar className={classes.toolbar}>
+          <div className={classes.profile}>
+            <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
+          </div>
+        </Toolbar>
     </AppBar>
   )
 
@@ -47,25 +41,15 @@ const Header = () => {
         {user ? (
           adminMenu
         ) : (
-        <AppBar position="fixed" className={classes.appBar} color="inherit">
-          <Toolbar>
-            <Typography component={Link} to="/" variant="h6" className={classes.title} style={{ textDecoration: 'none' }} color="inherit">
-              <img src={logo} alt="gjorgjioski commerce" height="25px" className={classes.image} /> Commerce.js
-            </Typography>
-            <div className={classes.grow} />
-            {location.pathname === '/' && (
-              <div className={classes.button}>
-                <IconButton component={Link} to="/cart" aria-label="Show cart items" color="inherit">
-                  <Badge badgeContent={6} color="secondary">
-                    <ShoppingCart />
-                  </Badge>
-                </IconButton>
-              </div>
-            )}
+        <AppBar className={classes.appBar} position="static" color="inherit">
+          <Link to="/admin" className={classes.brandContainer}>
+              <img src={logo} alt="gjorgjioski commerce" height="25px" className={classes.image} />
+          </Link>
+          <Toolbar className={classes.toolbar}>
+            <Button component={Link} to="/login" variant="contained" color="primary">Sign In</Button>
           </Toolbar>
         </AppBar>
         )}
-        {renderMobileMenu}
       </>
   )
 }

@@ -12,9 +12,9 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 const App = () => {
   return (
     <Router>
+      <CssBaseline />
+      <Header />
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <CssBaseline />
-        <Header />
           <Switch>
             <PrivateRoute component={Admin} exact path="/admin" />
             <Route exact path="/login">
