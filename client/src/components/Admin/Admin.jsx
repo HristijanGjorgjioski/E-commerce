@@ -8,6 +8,7 @@ import useStyles from './styles'
 import * as actionType from '../../constants/actionTypes'
 import Products from './Products/Products'
 import Form from './Form/Form'
+import Header from '../Header/Header'
 
 const Admin = () => {
     const classes = useStyles()
@@ -15,6 +16,7 @@ const Admin = () => {
     return (
         <Grow in>
             <Container maxWidth="xl">
+                <Header />
                 <Grid container justify="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
                     <Grid item xs={12} sm={6} md={9}>
                         <Products />

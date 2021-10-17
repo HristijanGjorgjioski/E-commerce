@@ -17,9 +17,7 @@ const Header = () => {
 
   const logout = () => {
     dispatch({ type: LOGOUT })
-
     history.push('/')
-
     setUser(null)
   }
 
@@ -34,20 +32,24 @@ const Header = () => {
     </AppBar>
   )
 
+  const userMenu = (
+    <AppBar className={classes.appBar} position="static" color="inherit">
+      <Link to="/admin" className={classes.brandContainer}>
+          <img src={logo} alt="gjorgjioski commerce" height="25px" className={classes.image} />
+      </Link>
+      <Toolbar className={classes.toolbar}>
+        <Badge style={{ marginRight: '15px' }} badgeContent={2} color="secondary">
+          <ShoppingCart />
+        </Badge>
+        <Button component={Link} to="/login" variant="contained" color="primary">Admin</Button>
+      </Toolbar>
+    </AppBar>
+  )
+
   return (
       <>
         {!user?.result ? (
-          <AppBar className={classes.appBar} position="static" color="inherit">
-            <Link to="/admin" className={classes.brandContainer}>
-                <img src={logo} alt="gjorgjioski commerce" height="25px" className={classes.image} />
-            </Link>
-            <Toolbar className={classes.toolbar}>
-              <Badge style={{ marginRight: '15px' }} badgeContent={2} color="secondary">
-                <ShoppingCart />
-              </Badge>
-              <Button component={Link} to="/login" variant="contained" color="primary">Admin</Button>
-            </Toolbar>
-          </AppBar>
+          userMenu
         ) : (
           adminMenu
         )}
