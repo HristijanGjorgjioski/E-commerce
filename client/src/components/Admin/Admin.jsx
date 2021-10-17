@@ -12,6 +12,7 @@ import Header from '../Header/Header'
 
 const Admin = () => {
     const classes = useStyles()
+    const [currentId, setCurrentId] = useState(0)
 
     return (
         <Grow in>

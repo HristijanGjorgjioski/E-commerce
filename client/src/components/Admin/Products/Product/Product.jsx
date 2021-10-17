@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom';
 import useStyles from './styles'
 import { deleteProduct, updateProduct } from '../../../../actions/product';
 
-const Product = ({ product }) => {
+const Product = ({ product, setCurrentId }) => {
     const user = JSON.parse(localStorage.getItem('profile'))
     const dispatch = useDispatch();
     const history = useHistory();
@@ -40,7 +40,7 @@ const Product = ({ product }) => {
                     <IconButton aria-label="Delete Product" onClick={() => dispatch(deleteProduct(product._id))}>
                         <Delete color="secondary" />
                     </IconButton>
-                    <IconButton aria-label="Edit Product" onClick={() => {}}>
+                    <IconButton aria-label="Edit Product" onClick={(e) => {e.stopPropagation(); setCurrentId(product._id)}}>
                         <Edit color="primary" />
                     </IconButton>
                 </CardActions>
