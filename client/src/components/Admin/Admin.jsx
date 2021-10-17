@@ -5,11 +5,11 @@ import { useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
 import useStyles from './styles'
-import * as actionType from '../../../constants/actionTypes'
-import AddProduct from '../AddProduct/AddProduct'
-import ListAllProducts from '../ListAllProducts/ListAllProducts'
+import * as actionType from '../../constants/actionTypes'
+import AddProduct from './AddProduct/AddProduct'
+import ListAllProducts from './ListAllProducts/ListAllProducts'
 
-const AdminMenu = () => {
+const Admin = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
     const dispatch = useDispatch()
     const history = useHistory()
@@ -29,4 +29,4 @@ const AdminMenu = () => {
     )
 }
 
-export default AdminMenu
+export default Admin
