@@ -22,5 +22,10 @@ export default makeStyles((theme) => ({
       marginTop: '30%',
       width: '95%'
     }
-  }
+  },
+  gridContainer: {
+    [theme.breakpoints.down('xs')]: {
+      flexDirection: 'column-reverse',
+    },
+  },
 }));

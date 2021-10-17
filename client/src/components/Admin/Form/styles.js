@@ -8,9 +8,7 @@ export default makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    marginTop: '3%',
-    marginBottom: '3%',
-    width: '30%',
+    marginTop: '0%'
   },
   form: {
     display: 'flex',
@@ -24,18 +22,4 @@ export default makeStyles((theme) => ({
   buttonSubmit: {
     marginBottom: 10,
   },
-  selectDiv: {
-    padding: theme.spacing(1),
-    display: 'flex',
-    flexGrow: 2,
-    justifyContent: 'space-between',
-  },
-  [theme.breakpoints.down('sm')]: {
-    paper: {
-      padding: theme.spacing(2),
-      marginTop: '3%',
-      marginBottom: '17%',
-      width: '95%'
-    }
-  }
 }));
