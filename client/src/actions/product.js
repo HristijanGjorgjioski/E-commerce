@@ -27,3 +27,11 @@ export const createProduct = (product, history) => async (dispatch) => {
         console.log(error)
     }
 }
+
+export const updateProduct = (updatedProduct, history) => async (dispatch) => {
+    try {
+        
+    } catch (error) {
+        
+    }
+}
