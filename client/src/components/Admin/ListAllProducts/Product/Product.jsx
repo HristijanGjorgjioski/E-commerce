@@ -36,7 +36,7 @@ const Product = ({ product }) => {
                         <Link to={`/delete?${product._id}`}><Delete color="secondary" /></Link>
                     </IconButton>
                     <IconButton aria-label="Edit Product" onClick={handleAddToCart}>
-                        <Link to={`/edit?${product._id}`}><Edit color="primary" /></Link>
+                        <Link to={`/update/${product._id}`}><Edit color="primary" /></Link>
                     </IconButton>
                 </CardActions>
             ) : (

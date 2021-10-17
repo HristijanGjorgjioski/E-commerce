@@ -6,6 +6,7 @@ import AddAdmin from './components/Admin/AddAdmin/AddAdmin'
 import AddProduct from './components/Admin/AddProduct/AddProduct'
 import AdminMenu from './components/Admin/AdminMenu/AdminMenu'
 import ListAllProducts from './components/Admin/ListAllProducts/ListAllProducts'
+import UpdateProduct from './components/Admin/ListAllProducts/UpdateProduct/UpdateProduct'
 
 import Header from './components/Header/Header'
 import Login from './components/Login/Login'
@@ -23,6 +24,7 @@ const App = () => {
             <PrivateRoute component={AddAdmin} exact path="/addadmin" />
             <PrivateRoute component={AddProduct} exact path="/addproduct" />
             <PrivateRoute component={ListAllProducts} exact path="/allproducts" />
+            <PrivateRoute component={UpdateProduct} exact path="/update/:id" />
             <Route exact path="/login">
               <Login />
             </Route>
