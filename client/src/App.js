@@ -1,4 +1,4 @@
-import { CssBaseline } from '@material-ui/core'
+import { Container } from '@material-ui/core'
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
@@ -12,16 +12,17 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 const App = () => {
   return (
     <Router>
-      <CssBaseline />
-      <Header />
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <Switch>
-            <PrivateRoute component={Admin} exact path="/admin" />
-            <Route exact path="/login">
-              <Login />
-            </Route>
-          </Switch>
-      </div>
+      <Container max="x1">
+        <Header />
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Switch>
+              <PrivateRoute component={Admin} exact path="/admin" />
+              <Route exact path="/login">
+                <Login />
+              </Route>
+            </Switch>
+        </div>
+      </Container>
     </Router>
   )
 }

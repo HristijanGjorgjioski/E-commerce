@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography, Button } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
 import { Link, useHistory } from 'react-router-dom'
@@ -36,20 +36,20 @@ const Header = () => {
 
   return (
       <>
-        {user ? (
-          adminMenu
+        {!user?.result ? (
+          <AppBar className={classes.appBar} position="static" color="inherit">
+            <Link to="/admin" className={classes.brandContainer}>
+                <img src={logo} alt="gjorgjioski commerce" height="25px" className={classes.image} />
+            </Link>
+            <Toolbar className={classes.toolbar}>
+              <Badge style={{ marginRight: '15px' }} badgeContent={2} color="secondary">
+                <ShoppingCart />
+              </Badge>
+              <Button component={Link} to="/login" variant="contained" color="primary">Admin</Button>
+            </Toolbar>
+          </AppBar>
         ) : (
-        <AppBar className={classes.appBar} position="static" color="inherit">
-          <Link to="/admin" className={classes.brandContainer}>
-              <img src={logo} alt="gjorgjioski commerce" height="25px" className={classes.image} />
-          </Link>
-          <Toolbar className={classes.toolbar}>
-            <Badge style={{ marginRight: '15px' }} badgeContent={2} color="secondary">
-              <ShoppingCart />
-            </Badge>
-            <Button component={Link} to="/login" variant="contained" color="primary">Sign In</Button>
-          </Toolbar>
-        </AppBar>
+          adminMenu
         )}
       </>
   )
