@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import useStyles from './styles'
+import { deleteProduct, updateProduct } from '../../../../actions/product';
 
 const Product = ({ product }) => {
     const user = JSON.parse(localStorage.getItem('profile'))
@@ -36,11 +37,11 @@ const Product = ({ product }) => {
             </CardContent>
             {user ? (
                 <CardActions disableSpacing className={classes.cardActions}>
-                    <IconButton aria-label="Delete Product" onClick={handleAddToCart}>
-                        <Link to={`/delete?${product._id}`}><Delete color="secondary" /></Link>
+                    <IconButton aria-label="Delete Product" onClick={() => dispatch(deleteProduct(product._id))}>
+                        <Delete color="secondary" />
                     </IconButton>
-                    <IconButton aria-label="Edit Product" onClick={handleAddToCart}>
-                        <Link to={`/update/${product._id}`}><Edit color="primary" /></Link>
+                    <IconButton aria-label="Edit Product" onClick={() => {}}>
+                        <Edit color="primary" />
                     </IconButton>
                 </CardActions>
             ) : (
