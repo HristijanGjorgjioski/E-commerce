@@ -3,12 +3,12 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Admin from './components/Admin/Admin'
+import User from './components/User/User'
 
 import Header from './components/Header/Header'
 import Login from './components/Login/Login'
 
 import PrivateRoute from './components/PrivateRoute/PrivateRoute'
-import User from './components/User/User'
 
 const App = () => {
   return (
