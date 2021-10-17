@@ -10,7 +10,7 @@ import { createProduct } from '../../../actions/product'
 const collectionData = [{ name: 'Hats' }, { name: 'Female Shoes' }, { name: 'Sneakers' }, { name: 'Winter jackets' }]
 const sizeData = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
 
-const AddProduct = () => {
+const Form = () => {
     const user = JSON.parse(localStorage.getItem('profile'))
     const username = user.result.username
     const [productData, setProductData] = useState({ title: '', description: '', selection: '', selectedFile: '', price: '', size: '', createdBy: username })
@@ -69,4 +69,4 @@ const AddProduct = () => {
     )
 }
 
-export default AddProduct
+export default Form

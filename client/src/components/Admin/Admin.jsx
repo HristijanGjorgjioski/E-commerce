@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { Button, Paper, Typography } from '@material-ui/core'
+import { Button, Grid, Grow, Paper, Typography } from '@material-ui/core'
 import { ListAlt, PersonAdd, PostAdd } from '@material-ui/icons'
 import { useDispatch } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
 import useStyles from './styles'
 import * as actionType from '../../constants/actionTypes'
-import AddProduct from './AddProduct/AddProduct'
-import ListAllProducts from './ListAllProducts/ListAllProducts'
+// import Form from './Form/Form'
+import Products from './Products/Products'
 
 const Admin = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
@@ -24,8 +24,13 @@ const Admin = () => {
     }
 
     return (
-        <Paper className={classes.paper} elevation={6}>
-        </Paper>
+        <Grow in>
+            <Grid container justify="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
+                <Grid item xs={12} sm={6} md={9}>
+                    <Products />
+                </Grid>
+            </Grid>
+        </Grow>
     )
 }
 

@@ -6,7 +6,7 @@ import { getProducts } from '../../../actions/product'
 import Product from './Product/Product'
 import useStyles from './styles'
 
-const ListAllProducts = () => {
+const Products = () => {
     const classes = useStyles()
     const dispatch = useDispatch()
 
@@ -36,4 +36,4 @@ const ListAllProducts = () => {
     )
 }
 
-export default ListAllProducts
+export default Products
