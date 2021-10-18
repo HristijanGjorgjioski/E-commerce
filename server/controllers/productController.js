@@ -35,13 +35,13 @@ export const createProduct = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
     const { id } = req.params
-    const { createdBy, title, description, price, selection, size, selectedFile } = req.body
+    const { createdBy, title, description, price, selection, size, imageUrl } = req.body
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No product with id: ${id}`);
 
-    const updatedProduct = { createdBy, title, description, price, selection, size, selectedFile, _id: id }
+    const updatedProduct = { createdBy, title, description, price, selection, size, imageUrl, _id: id }
 
-    await Product.findByIdAndUpdate(id, updateProduct, { new: true })
+    await Product.findByIdAndUpdate(id, updatedProduct, { new: true })
 
     res.json(updatedProduct)
 }

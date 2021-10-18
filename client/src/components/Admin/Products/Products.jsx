@@ -22,7 +22,7 @@ const Products = ({ setCurrentId }) => {
         isLoading ? <CircularProgress /> : (
             <Grid container className={classes.container} justify="center" spacing={4}>
                 {products.map((product) => (
-                    <Grid key={product.id} item xs={12} sm={6} md={4} lg={3}>
+                    <Grid key={product._id} item xs={12} sm={6} md={4} lg={3}>
                         <Product product={product} onAddToCart={'onAddToCart'} setCurrentId={setCurrentId} />
                     </Grid>
                 ))}
