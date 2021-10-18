@@ -20,10 +20,10 @@ const Admin = () => {
                 <Header />
                 <Grid container justify="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
                     <Grid item xs={12} sm={6} md={9}>
-                        <Products />
+                        <Products setCurrentId={setCurrentId} />
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
-                        <Form />
+                        <Form currentId={currentId} setCurrentId={setCurrentId} />
                     </Grid>
                 </Grid>
             </Container>

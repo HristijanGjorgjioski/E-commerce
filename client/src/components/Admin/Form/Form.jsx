@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Button, FormControl, InputLabel, MenuItem, Paper, Select, TextField, Typography } from '@material-ui/core'
 import FileBase from 'react-file-base64'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 
 import useStyles from './styles'
-import { createProduct } from '../../../actions/product'
+import { createProduct, updateProduct } from '../../../actions/product'
 
 const collectionData = [{ name: 'Hats' }, { name: 'Female Shoes' }, { name: 'Sneakers' }, { name: 'Winter jackets' }]
 const sizeData = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
@@ -14,19 +14,26 @@ const Form = ({ currentId, setCurrentId }) => {
     const user = JSON.parse(localStorage.getItem('profile'))
     const username = user.result.username
     const [productData, setProductData] = useState({ title: '', description: '', selection: '', selectedFile: '', price: '', size: '', createdBy: username })
+    const products = useSelector((state) => (currentId ? state.products.products.find((message) => message._id === currentId) : null))
     const classes = useStyles()
     const dispatch = useDispatch()
     const history = useHistory()
 
     const clear = () => {
+        setCurrentId(0);
         setProductData({ title: '', description: '', selectedFile: '', size: '', selection: '', price: '' });
       };
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
-        dispatch(createProduct(productData, history));
-        clear();
+        if (currentId === 0) {
+            dispatch(createProduct(productData, history));
+            clear();
+        } else {
+            dispatch(updateProduct(currentId, productData));
+            clear();
+        }
     }
 
     return (

@@ -6,7 +6,7 @@ import { getProducts } from '../../../actions/product'
 import Product from './Product/Product'
 import useStyles from './styles'
 
-const Products = () => {
+const Products = ({ setCurrentId }) => {
     const classes = useStyles()
     const dispatch = useDispatch()
 
@@ -16,16 +16,14 @@ const Products = () => {
 
     const { products, isLoading } = useSelector((state) => state.productReducer)
 
-    // console.log(products, isLoading, 'LISTALL')
-
     if(!products.length && !isLoading) return 'No products'
 
     return (
         isLoading ? <CircularProgress /> : (
-            <Grid container justify="center" spacing={4}>
+            <Grid container className={classes.container} justify="center" spacing={4}>
                 {products.map((product) => (
                     <Grid key={product.id} item xs={12} sm={6} md={4} lg={3}>
-                        <Product product={product} onAddToCart={'onAddToCart'} />
+                        <Product product={product} onAddToCart={'onAddToCart'} setCurrentId={setCurrentId} />
                     </Grid>
                 ))}
             </Grid>
