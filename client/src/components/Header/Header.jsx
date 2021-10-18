@@ -34,7 +34,7 @@ const Header = () => {
 
   const userMenu = (
     <AppBar className={classes.appBar} position="static" color="inherit">
-      <Link to="/admin" className={classes.brandContainer}>
+      <Link to="/" className={classes.brandContainer}>
           <img src={logo} alt="gjorgjioski commerce" height="25px" className={classes.image} />
       </Link>
       <Toolbar className={classes.toolbar}>
