@@ -14,10 +14,13 @@ const Form = ({ currentId, setCurrentId }) => {
     const user = JSON.parse(localStorage.getItem('profile'))
     const username = user.result.username
     const [productData, setProductData] = useState({ title: '', description: '', selection: '', selectedFile: '', price: '', size: '', createdBy: username })
-    const products = useSelector((state) => (currentId ? state.products.products.find((message) => message._id === currentId) : null))
+    const products = useSelector((state) => (currentId ? state.productReducer.products.find((p) => p._id === currentId) : null))
     const classes = useStyles()
     const dispatch = useDispatch()
     const history = useHistory()
+
+    console.log(useSelector((state) => (currentId ? state.productReducer.products.find((p) => p._id === currentId) : null)))
+    console.log(username)
 
     const clear = () => {
         setCurrentId(0);
