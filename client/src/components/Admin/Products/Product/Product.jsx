@@ -1,17 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { Card, CardMedia, Typography, CardActions, CardContent, IconButton, Button } from '@material-ui/core'
 import { AddShoppingCart, Delete, Edit } from '@material-ui/icons'
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 
 import useStyles from './styles'
-import { deleteProduct, updateProduct } from '../../../../actions/product';
+import { deleteProduct } from '../../../../actions/product';
 
 const Product = ({ product, setCurrentId }) => {
     const user = JSON.parse(localStorage.getItem('profile'))
     const dispatch = useDispatch();
-    const history = useHistory();
     const classes = useStyles()
 
     const handleAddToCart = () => {}

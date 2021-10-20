@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { Button, FormControl, InputLabel, MenuItem, Paper, Select, TextField, Typography } from '@material-ui/core'
+import { Button, FormControl, FormControlLabel, FormLabel, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TextField, Typography } from '@material-ui/core'
 import FileBase from 'react-file-base64'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 
 import useStyles from './styles'
 import { createProduct, updateProduct } from '../../../actions/product'
-
-const collectionData = [{ name: 'Hats' }, { name: 'Female Shoes' }, { name: 'Sneakers' }, { name: 'Winter jackets' }]
-const sizeData = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
+import { sizeData, collectionData } from '../../../constants/data'
 
 const Form = ({ currentId, setCurrentId }) => {
     const user = JSON.parse(localStorage.getItem('profile'))
     const username = user.result.username
-    const [productData, setProductData] = useState({ title: '', description: '', selection: '', imageUrl: '', price: '', size: '', createdBy: username })
+    const [productData, setProductData] = useState({ title: '', description: '', selection: '', imageUrl: '', price: '', size: '', gender: '', createdBy: username })
     const product = useSelector((state) => (currentId ? state.productReducer.products.find((p) => p._id === currentId) : null))
     const classes = useStyles()
     const dispatch = useDispatch()
@@ -24,7 +22,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
     const clear = () => {
         setCurrentId(0);
-        setProductData({ title: '', description: '', imageUrl: '', size: '', selection: '', price: '' });
+        setProductData({ title: '', description: '', imageUrl: '', size: '', selection: '', price: '', gender: '' });
     };
 
     useEffect(() => {
@@ -77,6 +75,12 @@ const Form = ({ currentId, setCurrentId }) => {
                         </Select>
                     </FormControl>
                 </div>
+                <FormControl required>
+                    <RadioGroup row aria-label="gender" name="radio-buttons-group">
+                        <FormControlLabel value="male" control={<Radio />} label="Male" />
+                        <FormControlLabel value="female" control={<Radio />} label="Female" />
+                    </RadioGroup>
+                </FormControl>
                 <div className={classes.fileInput}><FileBase type="file" multiple={false} value={productData.imageUrl} onDone={({ base64 }) => setProductData({ ...productData, imageUrl: base64 })} /></div>
                 <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
                 <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>

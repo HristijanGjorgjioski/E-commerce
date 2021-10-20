@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu, Typography, Button } from '@material-ui/core';
+import React, { useState } from 'react'
+import { AppBar, Toolbar, Badge, Button } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
 import { Link, useHistory } from 'react-router-dom'
 
 import logo from '../../assets/commerce.png'
 import admin from '../../assets/admin.jpg'
-import useStyles from './styles'
 import { useDispatch } from 'react-redux';
 import { LOGOUT } from '../../constants/actionTypes';
+import useStyles from './styles'
 
 const Header = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))

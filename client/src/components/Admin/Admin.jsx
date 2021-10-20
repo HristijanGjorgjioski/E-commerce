@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
-import { AppBar, Button, Container, Grid, Grow, Input, Paper, TextField, Typography } from '@material-ui/core'
-import { ListAlt, PersonAdd, PostAdd } from '@material-ui/icons'
-import { useDispatch } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom'
+import { Container, Grid, Grow } from '@material-ui/core'
 
 import useStyles from './styles'
-import * as actionType from '../../constants/actionTypes'
 import Products from './Products/Products'
 import Form from './Form/Form'
 import Header from '../Header/Header'
