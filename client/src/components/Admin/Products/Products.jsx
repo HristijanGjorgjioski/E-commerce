@@ -16,7 +16,7 @@ const Products = ({ setCurrentId }) => {
 
     const { products, isLoading } = useSelector((state) => state.productReducer)
 
-    if(!products.length && !isLoading) return 'No products'
+    if(!products?.length && !isLoading) return 'No products'
 
     return (
         isLoading ? <CircularProgress /> : (

@@ -19,6 +19,7 @@ export const searchProduct = (searchData) => async (dispatch) => {
         dispatch({ type: START_LOADING });
         console.log(searchData, 'data')
         const { data } = await api.searchProduct(searchData);
+        console.log(data)
     
         dispatch({ type: SEARCH_PRODUCT, payload: data });
         dispatch({ type: END_LOADING });

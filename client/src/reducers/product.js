@@ -1,4 +1,4 @@
-import { CREATE_PRODUCT, DELETE_PRODUCT, END_LOADING, FETCH_ALL, START_LOADING, UPDATE_PRODUCT } from '../constants/actionTypes'
+import { CREATE_PRODUCT, DELETE_PRODUCT, END_LOADING, FETCH_ALL, SEARCH_PRODUCT, START_LOADING, UPDATE_PRODUCT } from '../constants/actionTypes'
 
 const productReducer = (state = { isLoading: true, products: [] }, action) => {
     switch (action.type) {
@@ -7,7 +7,9 @@ const productReducer = (state = { isLoading: true, products: [] }, action) => {
         case END_LOADING:
             return { ...state, isLoading: false };
         case FETCH_ALL:
-            return { ...state, products: action.payload.data }
+            return { ...state, products: action.payload.data };
+        case SEARCH_PRODUCT:
+            return { ...state, products: action.payload.data };
         case CREATE_PRODUCT:
             return { ...state, products: [...state.products, action.payload] };
         case UPDATE_PRODUCT:

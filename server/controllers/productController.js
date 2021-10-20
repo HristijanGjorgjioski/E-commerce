@@ -13,11 +13,11 @@ export const getProducts = async (req, res) => {
 }
 
 export const searchProductByFilter = async (req, res) => {
-    const { gender, size, selection } = req.body
-    console.log(req.body)
+    const { gender, size, selection } = req.query
+    console.log(req.query)
 
     try {
-        const products = await Product.find({ gender })
+        const products = await Product.find({ gender: 'Male' })
 
         res.status(201).json({ products })
     } catch (error) {
