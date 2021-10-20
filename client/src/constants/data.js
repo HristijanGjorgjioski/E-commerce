@@ -1,4 +1,4 @@
-export const gender = ['male', 'female'];
+export const genderData = ['Male', 'Female'];
 
 export const collectionData = [
     { name: 'Hats' }, 

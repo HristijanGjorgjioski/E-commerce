@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, FormControl, FormControlLabel, FormLabel, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TextField, Typography } from '@material-ui/core'
+import { Button, FormControl, FormControlLabel, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TextField, Typography } from '@material-ui/core'
 import FileBase from 'react-file-base64'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
@@ -18,7 +18,6 @@ const Form = ({ currentId, setCurrentId }) => {
     const history = useHistory()
 
     console.log(useSelector((state) => (currentId ? state.productReducer.products.find((p) => p._id === currentId) : null)))
-    console.log(username)
 
     const clear = () => {
         setCurrentId(0);
@@ -76,9 +75,9 @@ const Form = ({ currentId, setCurrentId }) => {
                     </FormControl>
                 </div>
                 <FormControl required>
-                    <RadioGroup row aria-label="gender" name="radio-buttons-group">
-                        <FormControlLabel value="male" control={<Radio />} label="Male" />
-                        <FormControlLabel value="female" control={<Radio />} label="Female" />
+                    <RadioGroup row aria-label="gender" name="radio-buttons-group" onChange={(e) => setProductData({ ...productData, gender: e.target.value })}>
+                        <FormControlLabel value={productData.gender} control={<Radio />} label="Male" />
+                        <FormControlLabel value={productData.gender} control={<Radio />} label="Female" />
                     </RadioGroup>
                 </FormControl>
                 <div className={classes.fileInput}><FileBase type="file" multiple={false} value={productData.imageUrl} onDone={({ base64 }) => setProductData({ ...productData, imageUrl: base64 })} /></div>
