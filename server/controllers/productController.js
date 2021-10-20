@@ -12,6 +12,19 @@ export const getProducts = async (req, res) => {
     }
 }
 
+export const searchProductByFilter = async (req, res) => {
+    const { gender, size, selection } = req.body
+
+    try {
+        const products = Product.find({ $or: [ { gender }, { size }, { selection } ] })
+
+        res.json({ data: products })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: "Something went wrong" });
+    }
+}
+
 export const createProduct = async (req, res) => {
     const { createdBy, title, description, price, selection, size, gender, selectedFile } = req.body
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FormControl, FormControlLabel, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select } from '@material-ui/core'
 
 import useStyles from './styles'
@@ -9,8 +9,12 @@ const FilterForm = () => {
     const classes = useStyles()
 
     const handleSubmit = () => {
-        console.log(searchData)
+        console.log('handleSubmit')
     }
+
+    useEffect(() => {
+        console.log(searchData)
+    }, [searchData])
 
     return (
         <Paper elevation={6} className={classes.paper}>

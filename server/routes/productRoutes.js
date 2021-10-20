@@ -2,8 +2,9 @@ import express from 'express'
 
 const router = express.Router()
 
-import { createProduct, deleteProduct, getProducts, updateProduct } from '../controllers/productController.js';
+import { createProduct, deleteProduct, getProducts, searchProductByFilter, updateProduct } from '../controllers/productController.js';
 
+router.get('/search', searchProductByFilter);
 router.get('/get-all-products', getProducts);
 
 router.post('/create-product', createProduct);
