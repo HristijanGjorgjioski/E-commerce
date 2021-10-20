@@ -17,9 +17,9 @@ export const searchProductByFilter = async (req, res) => {
     console.log(req.query)
 
     try {
-        const products = await Product.find({ gender: 'Male' })
+        const products = await Product.find({ selection, size, gender })
 
-        res.status(201).json({ products })
+        res.status(201).json({ data: products })
     } catch (error) {
         console.log(error)
         res.status(500).json({ message: "Something went wrong" });
