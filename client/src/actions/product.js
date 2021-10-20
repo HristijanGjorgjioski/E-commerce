@@ -6,7 +6,6 @@ export const getProducts = () => async(dispatch) => {
         dispatch({ type: START_LOADING })
 
         const { data } = await api.getProducts()
-        console.log(data)
 
         dispatch({ type: FETCH_ALL, payload: data })
         dispatch({ type: END_LOADING })

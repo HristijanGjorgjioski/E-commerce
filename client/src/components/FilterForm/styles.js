@@ -7,10 +7,13 @@ export default makeStyles((theme) => ({
         },
       },
       paper: {
-        padding: theme.spacing(2),
-        marginTop: '0%'
+        padding: theme.spacing(0),
+        marginTop: '0%',
+        marginBottom: '3%',
+        width: '60%',
       },
       form: {
+        width: '100%',
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
@@ -25,7 +28,7 @@ export default makeStyles((theme) => ({
       selectDiv: {
         padding: theme.spacing(1),
         display: 'flex',
-        flexGrow: 2,
+        flexGrow: 3,
         justifyContent: 'space-between',
     },
 }));

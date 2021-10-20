@@ -8,7 +8,9 @@ const User = () => {
     return (
         <div>
             <Header />
-            <FilterForm />
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <FilterForm />
+            </div>
             <Products />
         </div>
     )
