@@ -6,7 +6,7 @@ import { useHistory } from 'react-router'
 
 import useStyles from './styles'
 import { createProduct, updateProduct } from '../../../actions/product'
-import { sizeData, collectionData } from '../../../constants/data'
+import { sizeData, collectionData, genderData } from '../../../constants/data'
 
 const Form = ({ currentId, setCurrentId }) => {
     const user = JSON.parse(localStorage.getItem('profile'))
@@ -76,8 +76,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 </div>
                 <FormControl required>
                     <RadioGroup row aria-label="gender" name="radio-buttons-group" onChange={(e) => setProductData({ ...productData, gender: e.target.value })}>
-                        <FormControlLabel value={productData.gender} control={<Radio />} label="Male" />
-                        <FormControlLabel value={productData.gender} control={<Radio />} label="Female" />
+                        {genderData.map((g, i) => <FormControlLabel key={i} value={g} control={<Radio />} label={g} />)}
                     </RadioGroup>
                 </FormControl>
                 <div className={classes.fileInput}><FileBase type="file" multiple={false} value={productData.imageUrl} onDone={({ base64 }) => setProductData({ ...productData, imageUrl: base64 })} /></div>
