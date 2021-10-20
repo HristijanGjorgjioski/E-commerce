@@ -1,4 +1,4 @@
-import { CREATE_PRODUCT, DELETE_PRODUCT, END_LOADING, FETCH_ALL, START_LOADING, UPDATE_PRODUCT } from '../constants/actionTypes'
+import { CREATE_PRODUCT, DELETE_PRODUCT, END_LOADING, FETCH_ALL, SEARCH_PRODUCT, START_LOADING, UPDATE_PRODUCT } from '../constants/actionTypes'
 import * as api from '../api/index.js'
 
 export const getProducts = () => async(dispatch) => {
@@ -11,6 +11,18 @@ export const getProducts = () => async(dispatch) => {
         dispatch({ type: END_LOADING })
     } catch (error) {
         console.log(error)
+    }
+}
+
+export const searchProduct = (searchData) => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING });
+        const { data: { data } } = await api.searchProduct(searchData);
+    
+        dispatch({ type: SEARCH_PRODUCT, payload: { data } });
+        dispatch({ type: END_LOADING });
+    } catch (error) {
+        console.log(error);
     }
 }
 
