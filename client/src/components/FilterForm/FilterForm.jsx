@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { FormControl, FormControlLabel, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select } from '@material-ui/core'
 
-import useStyles from './styles'
+import { searchProduct } from '../../actions/product'
 import { genderData, sizeData, collectionData } from '../../constants/data'
+import useStyles from './styles'
 
 const FilterForm = () => {
     const [searchData, setSearchData] = useState({ size: '', gender: '', selection: '' })
+    const dispatch = useDispatch()
     const classes = useStyles()
 
     const handleSubmit = () => {
-        console.log('handleSubmit')
+        dispatch(searchProduct(searchData))
     }
 
     useEffect(() => {
-        console.log(searchData)
+        dispatch(searchProduct(searchData))
     }, [searchData])
 
     return (
@@ -27,7 +30,7 @@ const FilterForm = () => {
                             id="collection-label-id"
                             label="Collection"
                             value={searchData.selection}
-                            onChange={(e) => {setSearchData({ ...searchData, selection: e.target.value }); handleSubmit();}}
+                            onChange={(e) => {setSearchData({ ...searchData, selection: e.target.value });}}
                         >
                             {collectionData.map((d) => <MenuItem key={d.name} value={d.name}>{d.name}</MenuItem>)}
                         </Select>
@@ -39,13 +42,13 @@ const FilterForm = () => {
                             id="size-label-id"
                             label="Size"
                             value={searchData.size}
-                            onChange={(e) => {setSearchData({ ...searchData, size: e.target.value }); handleSubmit();}}
+                            onChange={(e) => {setSearchData({ ...searchData, size: e.target.value });}}
                         >
                             {sizeData.map((s) => <MenuItem key={s} value={s}>{s}</MenuItem>)}
                         </Select>
                     </FormControl>
                     <FormControl>
-                        <RadioGroup row aria-label="gender" name="radio-buttons-group" onChange={(e) => {setSearchData({ ...searchData, gender: e.target.value }); handleSubmit();}}>
+                        <RadioGroup row aria-label="gender" name="radio-buttons-group" onChange={(e) => {setSearchData({ ...searchData, gender: e.target.value });}}>
                             {genderData.map((g, i) => <FormControlLabel key={i} value={g} control={<Radio />} label={g} />)}
                         </RadioGroup>
                     </FormControl>
