@@ -17,7 +17,19 @@ export const searchProductByFilter = async (req, res) => {
     console.log(req.query)
 
     try {
-        const products = await Product.find({ selection, size, gender })
+        const products = await Product.find({
+            $and: [
+                {
+                    $or: [{ gender }]
+                },
+                {
+                    $or: [{ size }]
+                },
+                {
+                    $or: [{ selection }]
+                }
+            ]
+        })
 
         res.status(201).json({ data: products })
     } catch (error) {

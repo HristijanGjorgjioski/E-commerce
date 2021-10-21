@@ -17,8 +17,6 @@ const Form = ({ currentId, setCurrentId }) => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    console.log(useSelector((state) => (currentId ? state.productReducer.products.find((p) => p._id === currentId) : null)))
-
     const clear = () => {
         setCurrentId(0);
         setProductData({ title: '', description: '', imageUrl: '', size: '', selection: '', price: '', gender: '' });

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
-import { FormControl, FormControlLabel, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select } from '@material-ui/core'
+import { FormControl, FormControlLabel, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, Typography } from '@material-ui/core'
 
 import { searchProduct } from '../../actions/product'
 import { genderData, sizeData, collectionData } from '../../constants/data'
@@ -54,7 +54,7 @@ const FilterForm = () => {
                     </FormControl>
                     <FormControl>
                         <RadioGroup row aria-label="gender" name="radio-buttons-group" onChange={(e) => {setSearchData({ ...searchData, gender: e.target.value });}}>
-                            {genderData.map((g, i) => <FormControlLabel key={i} value={g} control={<Radio />} label={g} />)}
+                            {genderData.map((g, i) => <FormControlLabel key={i} value={g} control={<Radio />} label={<Typography variant="body2">{g}</Typography>} />)}
                         </RadioGroup>
                     </FormControl>
                 </div>
