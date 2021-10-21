@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom';
 import { FormControl, FormControlLabel, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, Typography } from '@material-ui/core'
 
 import { searchProduct } from '../../actions/product'
@@ -10,18 +9,10 @@ import useStyles from './styles'
 const FilterForm = () => {
     const [searchData, setSearchData] = useState({ size: '', gender: '', selection: '' })
     const dispatch = useDispatch()
-    const history = useHistory();
     const classes = useStyles()
-
-    // const handleSubmit = () => {
-    //     dispatch(searchProduct(searchData))
-    //     history.push(`/products/search?gender=${searchData.gender || 'none'}&size=${searchData.size}&collection=${searchData.selection}`)
-    // }
 
     useEffect(() => {
         dispatch(searchProduct(searchData))
-
-        // history.push(`/product/search?gender=${searchData.gender || 'none'}&size=${searchData.size}&collection=${searchData.selection}`)
     }, [searchData])
 
     return (

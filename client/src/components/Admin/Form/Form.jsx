@@ -11,7 +11,7 @@ import { sizeData, collectionData, genderData } from '../../../constants/data'
 const Form = ({ currentId, setCurrentId }) => {
     const user = JSON.parse(localStorage.getItem('profile'))
     const username = user.result.username
-    const [productData, setProductData] = useState({ title: '', description: '', selection: '', imageUrl: '', price: '', size: '', gender: '', createdBy: username })
+    const [productData, setProductData] = useState({ title: '', selection: '', imageUrl: '', price: '', size: '', gender: '', createdBy: username })
     const product = useSelector((state) => (currentId ? state.productReducer.products.find((p) => p._id === currentId) : null))
     const classes = useStyles()
     const dispatch = useDispatch()
@@ -19,7 +19,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
     const clear = () => {
         setCurrentId(0);
-        setProductData({ title: '', description: '', imageUrl: '', size: '', selection: '', price: '', gender: '' });
+        setProductData({ title: '', imageUrl: '', size: '', selection: '', price: '', gender: '' });
     };
 
     useEffect(() => {
@@ -29,7 +29,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        console.log(productData)
         if (currentId === 0) {
             dispatch(createProduct(productData, history));
             clear();

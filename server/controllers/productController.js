@@ -17,18 +17,18 @@ export const searchProductByFilter = async (req, res) => {
     console.log(req.query)
 
     try {
-        const products = await Product.find({
-            $and: [
-                {
-                    $or: [{ gender }]
-                },
-                {
-                    $or: [{ size }]
-                },
-                {
-                    $or: [{ selection }]
-                }
-            ]
+        const products = await Product.find({ 
+            $and: [ 
+                { $or: [{ size }] },
+                { $or: [{ gender }] },
+                { $or: [{ selection }] },
+                { $or: [{ size, selection }] },
+                { $or: [{ size, gender }] },
+                { $or: [{ size, gender, selection }] },
+                { $or: [{ size, selection }] },
+                { $or: [{ size, selection, gender }] },
+                { $or: [{ size, selection }] },
+            ] 
         })
 
         res.status(201).json({ data: products })
@@ -39,7 +39,7 @@ export const searchProductByFilter = async (req, res) => {
 }
 
 export const createProduct = async (req, res) => {
-    const { createdBy, title, description, price, selection, size, gender, selectedFile } = req.body
+    const { createdBy, title, description, price, selection, size, gender, imageUrl } = req.body
 
     try {
         const result = await Product.create({
@@ -49,7 +49,7 @@ export const createProduct = async (req, res) => {
             selection,
             size,
             gender,
-            imageUrl: selectedFile,
+            imageUrl,
             createdBy,
         })
 
