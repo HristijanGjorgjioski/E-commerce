@@ -18,16 +18,12 @@ export const searchProductByFilter = async (req, res) => {
 
     try {
         const products = await Product.find({ 
-            $and: [ 
-                { $or: [{ size }] },
-                { $or: [{ gender }] },
-                { $or: [{ selection }] },
-                { $or: [{ size, selection }] },
-                { $or: [{ size, gender }] },
-                { $or: [{ size, gender, selection }] },
-                { $or: [{ size, selection }] },
-                { $or: [{ size, selection, gender }] },
-                { $or: [{ size, selection }] },
+            $or: [ 
+                { size },
+                { gender },
+                { selection },
+                { size, gender },
+                { size, gender, selection },
             ] 
         })
 
