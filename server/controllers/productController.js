@@ -13,30 +13,17 @@ export const getProducts = async (req, res) => {
 }
 
 export const searchProductByFilter = async (req, res) => {
-    const { gender, size, selection } = req.query
+    let { gender, size, selection } = req.query
     console.log(req.query)
 
     try {
-        // const products = await Product.find({ 
-        //     $or: [ 
-        //         { size },
-        //         { gender },
-        //         { selection },
-        //         { size, gender },
-        //         { size, gender, selection },
-        //     ] 
-        // })
+        let queryCond = {
+            ...( gender && { gender }),
+            ...( size && { size }),
+            ...( selection && { selection }),
+        }
 
-        // TRY WITH IF() --- if(size) => size , if(size&&gender) => size, gender ....
-
-        const products = await Product.find().or(
-            [
-                { size, gender },
-                // { size },
-                { gender },
-                { gender, size },
-            ]
-        )
+        const products = await Product.find(queryCond)
 
         res.status(201).json({ data: products })
     } catch (error) {
