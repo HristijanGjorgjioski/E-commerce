@@ -3,33 +3,28 @@ import { ADD_TO_CART, REMOVE_FROM_CART } from '../constants/actionTypes'
 const cartReducer = (state = { products: [], cart: [], currentItem: null }, action) => {
     switch (action.type) {
         case ADD_TO_CART:
-            // Great Item data from products array
-            const item = state.products.find(
-                (product) => product.id === action.payload.id
-            );
-            // Check if Item is in cart already
-            const inCart = state.cart.find((item) =>
-                item.id === action.payload.id ? true : false
-            );
+            const item = action.payload
 
-            const cartLength = state.cart.length;
+            const existItem = state.cartItems.find((x) => x.product === item.product)
 
-            return {
+            if (existItem) {
+                return {
                 ...state,
-                cartLength,
-                cart: inCart
-                ? state.cart.map((item) =>
-                    item.id === action.payload.id
-                        ? { ...item, qty: item.qty + 1 }
-                        : item
-                    )
-                : [...state.cart, { ...item, qty: 1 }],
-            };
+                cartItems: state.cartItems.map((x) =>
+                    x.product === existItem.product ? item : x
+                ),
+                }
+            } else {
+                return {
+                ...state,
+                cartItems: [...state.cartItems, item],
+                }
+            }
         case REMOVE_FROM_CART:
             return {
                 ...state,
-                cart: state.cart.filter((item) => item.id !== action.payload.id),
-            };
+                cartItems: state.cartItems.filter((x) => x.product !== action.payload),
+            }
         default:
             return state;
     }

@@ -10,3 +10,4 @@ export const collectionData = [
 ];
 
 export const sizeData = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 39, 40, 41, 42];
+
