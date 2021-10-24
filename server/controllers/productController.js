@@ -14,7 +14,6 @@ export const getProducts = async (req, res) => {
 
 export const searchProductByFilter = async (req, res) => {
     let { gender, size, collection } = req.query
-    console.log(req.query)
 
     try {
         let queryCond = {

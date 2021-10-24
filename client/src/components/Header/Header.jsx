@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { AppBar, Toolbar, Badge, Button } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
 import { Link, useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
 
 import logo from '../../assets/commerce.png'
 import admin from '../../assets/admin.jpg'
-import { useDispatch } from 'react-redux';
 import { LOGOUT } from '../../constants/actionTypes';
 import useStyles from './styles'
 
@@ -38,7 +38,7 @@ const Header = () => {
           <img src={logo} alt="gjorgjioski commerce" height="25px" className={classes.image} />
       </Link>
       <Toolbar className={classes.toolbar}>
-        <Badge style={{ marginRight: '15px' }} badgeContent={2} color="secondary">
+        <Badge  component={Link} to="/cart" style={{ marginRight: '15px' }} badgeContent={2} color="secondary">
           <ShoppingCart />
         </Badge>
         <Button component={Link} to="/login" variant="contained" color="primary">Admin</Button>
