@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { AppBar, Toolbar, Badge, Button } from '@material-ui/core';
 import { ShoppingCart } from '@material-ui/icons';
 import { Link, useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import logo from '../../assets/commerce.png'
 import admin from '../../assets/admin.jpg'
@@ -14,6 +14,9 @@ const Header = () => {
   const dispatch = useDispatch()
   const history = useHistory()
   const classes = useStyles()
+
+  const { cartLength } = useSelector((state) => state.cartReducer)
+  console.log(useSelector((state) => state.cartReducer))
 
   const logout = () => {
     dispatch({ type: LOGOUT })

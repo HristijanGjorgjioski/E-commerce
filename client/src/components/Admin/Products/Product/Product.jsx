@@ -6,14 +6,13 @@ import { useDispatch } from 'react-redux';
 
 import useStyles from './styles'
 import { deleteProduct } from '../../../../actions/product';
+import { addToCart } from '../../../../actions/cart';
 
 const Product = ({ product, setCurrentId }) => {
     const user = JSON.parse(localStorage.getItem('profile'))
     const dispatch = useDispatch();
     const classes = useStyles()
 
-    const handleAddToCart = () => {}
-    
     return (
         <Card className={classes.root}>
             <CardMedia className={classes.media} image={product.imageUrl || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={product.title} />
@@ -53,7 +52,7 @@ const Product = ({ product, setCurrentId }) => {
                 </CardActions>
             ) : (
                 <CardActions disableSpacing className={classes.cardActions}>
-                    <IconButton aria-label="Add to Cart" onClick={handleAddToCart}>
+                    <IconButton aria-label="Add to Cart" onClick={() => dispatch(addToCart(product._id))}>
                         <AddShoppingCart />
                     </IconButton>
                 </CardActions>

@@ -12,8 +12,11 @@ const cartReducer = (state = { products: [], cart: [], currentItem: null }, acti
                 item.id === action.payload.id ? true : false
             );
 
+            const cartLength = state.cart.length;
+
             return {
                 ...state,
+                cartLength,
                 cart: inCart
                 ? state.cart.map((item) =>
                     item.id === action.payload.id
@@ -31,3 +34,5 @@ const cartReducer = (state = { products: [], cart: [], currentItem: null }, acti
             return state;
     }
 }
+
+export default cartReducer

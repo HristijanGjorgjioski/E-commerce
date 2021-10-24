@@ -10,15 +10,9 @@ export const addToCart = (itemID) => async (dispatch) => {
     } catch (error) {
         console.log(error)
     }
-    // return {
-    //   type: ADD_TO_CART,
-    //   payload: {
-    //     id: itemID,
-    //   },
-    // };
 };
 
-export const removeFromCart = (itemID) => {
+export const removeFromCart = (itemID) => async (dispatch) => {
     try {
         dispatch({ type: START_LOADING })
 
