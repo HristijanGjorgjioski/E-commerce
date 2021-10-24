@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { FormControl, FormControlLabel, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, Typography } from '@material-ui/core'
 
-import { searchProduct } from '../../actions/product'
-import { genderData, sizeData, collectionData } from '../../constants/data'
+import { searchProduct } from '../../../actions/product'
+import { genderData, sizeData, collectionData } from '../../../constants/data'
 import useStyles from './styles'
 
 const FilterForm = () => {

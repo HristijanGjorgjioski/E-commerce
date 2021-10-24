@@ -13,14 +13,14 @@ export const getProducts = async (req, res) => {
 }
 
 export const searchProductByFilter = async (req, res) => {
-    let { gender, size, selection } = req.query
+    let { gender, size, collection } = req.query
     console.log(req.query)
 
     try {
         let queryCond = {
+            ...( collection && { selection: collection }),
             ...( gender && { gender }),
             ...( size && { size }),
-            ...( selection && { selection }),
         }
 
         const products = await Product.find(queryCond)
