@@ -27,6 +27,7 @@ const App = () => {
                 <User />
               </Route>
               <Route exact path="/cart">
+                <Header />
                 <Cart />
               </Route>
             </Switch>
