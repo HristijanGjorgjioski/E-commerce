@@ -1,6 +1,6 @@
 import { ADD_TO_CART, END_LOADING, REMOVE_FROM_CART, START_LOADING } from '../constants/actionTypes'
 
-export const addToCart = (item) => async (dispatch, getState) => {
+export const addToCart = (item) => async (dispatch) => {
     try {
         dispatch({ type: START_LOADING })
 
