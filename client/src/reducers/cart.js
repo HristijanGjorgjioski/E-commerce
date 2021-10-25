@@ -13,11 +13,8 @@ const cartReducer = (state = { products, cart: [], currentItem: null }, action) 
                 item._id === action.payload.item._id ? true : false
             );
 
-            const cartLength = state.cart.length;
-
             return {
                 ...state,
-                cartLength,
                 cart: inCart
                     ? state.cart.map((item) =>
                         item.id === action.payload.id

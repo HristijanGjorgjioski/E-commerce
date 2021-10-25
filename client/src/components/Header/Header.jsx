@@ -11,14 +11,10 @@ import useStyles from './styles'
 
 const Header = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+  const { cart } = useSelector((state) => state.cartReducer)
   const dispatch = useDispatch()
   const history = useHistory()
   const classes = useStyles()
-
-  const { cartLength } = useSelector((state) => state.cartReducer)
-  console.log(useSelector((state) => state.cartReducer))
-  // const products = JSON.parse(window.sessionStorage.getItem('products'))
-  // console.log(products)
 
   const logout = () => {
     dispatch({ type: LOGOUT })
@@ -43,7 +39,7 @@ const Header = () => {
           <img src={logo} alt="gjorgjioski commerce" height="25px" className={classes.image} />
       </Link>
       <Toolbar className={classes.toolbar}>
-        <Badge  component={Link} to="/cart" style={{ marginRight: '15px' }} badgeContent={cartLength} color="secondary">
+        <Badge  component={Link} to="/cart" style={{ marginRight: '15px' }} badgeContent={cart.length} color="secondary">
           <ShoppingCart />
         </Badge>
         <Button component={Link} to="/login" variant="contained" color="primary">Admin</Button>

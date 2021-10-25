@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 import Header from '../Header/Header'
 import Products from '../Admin/Products/Products'

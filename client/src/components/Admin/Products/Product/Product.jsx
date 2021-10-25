@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 // import { Link } from 'react-router-dom'
 import { Card, CardMedia, Typography, CardActions, CardContent, IconButton, Button } from '@material-ui/core'
 import { AddShoppingCart, Delete, Edit } from '@material-ui/icons'
@@ -9,15 +9,9 @@ import { deleteProduct } from '../../../../actions/product';
 import { addToCart } from '../../../../actions/cart';
 
 const Product = ({ product, setCurrentId }) => {
-    const [qty, setQty] = useState(0)
     const user = JSON.parse(localStorage.getItem('profile'))
     const dispatch = useDispatch();
     const classes = useStyles()
-
-    const addToCartHandler = () => {
-        // setQty(qty + 1)
-        // history.pushState(`/cart/${match.params.id}?qty=${qty}`)
-    }
 
     return (
         <Card className={classes.root}>
@@ -57,8 +51,8 @@ const Product = ({ product, setCurrentId }) => {
                     </Button>
                 </CardActions>
             ) : (
-                <CardActions disableSpacing className={classes.cardActions}>
-                    <IconButton aria-label="Add to Cart" onClick={() => dispatch(addToCart(product))}>
+                <CardActions disableSpacing className={classes.cardActions} onClick={() => dispatch(addToCart(product))}>
+                    <IconButton aria-label="Add to Cart">
                         <AddShoppingCart />
                     </IconButton>
                 </CardActions>
