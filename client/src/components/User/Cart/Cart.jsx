@@ -9,7 +9,7 @@ import useStyles from './styles'
 const Cart = () => {
     const classes = useStyles()
     const { cart } = useSelector((state) => state.cartReducer)
-
+    const totalPrice = cart.reduce((acc, curr) => acc + curr.price*curr.qty, 0)
     const renderEmptyCart = () => (
         <Typography variant="subtitle1">You have no items in your shopping cart,
           <Link className={classes.link} to="/">start adding some</Link>!
@@ -28,7 +28,7 @@ const Cart = () => {
             ))}
           </Grid>
           <div className={classes.cardDetails}>
-            <Typography variant="h4">Subtotal: {cart.price}$</Typography>
+            <Typography variant="h4">Subtotal: {totalPrice}$</Typography>
             <div>
               <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary">Empty cart</Button>
               <Button className={classes.checkoutButton} component={Link} to="/checkout" size="large" type="button" variant="contained" color="primary">Checkout</Button>

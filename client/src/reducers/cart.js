@@ -13,8 +13,11 @@ const cartReducer = (state = { products, cart: [], currentItem: null }, action) 
                 item._id === action.payload.item._id ? true : false
             );
 
+            const totalPrice = state.cart.reduce((acc, curr) => acc + curr.price*curr.qty, 0);
+
             return {
                 ...state,
+                totalPrice,
                 cart: inCart
                     ? state.cart.map((item) =>
                         item.id === action.payload.id
