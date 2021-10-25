@@ -3,10 +3,10 @@ import { ADD_TO_CART, END_LOADING, REMOVE_FROM_CART, START_LOADING } from '../co
 
 export const addToCart = (item) => async (dispatch, getState) => {
     try {
+        console.log(item)
         dispatch({ type: START_LOADING })
 
         dispatch({ type: ADD_TO_CART, payload: { item } })
-
         dispatch({ type: END_LOADING })
     } catch (error) {
         console.log(error)
