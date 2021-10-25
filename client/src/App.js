@@ -9,6 +9,7 @@ import Header from './components/Header/Header'
 import Login from './components/Login/Login'
 
 import PrivateRoute from './components/PrivateRoute/PrivateRoute'
+import Cart from './components/User/Cart/Cart'
 
 const App = () => {
   return (
@@ -24,6 +25,9 @@ const App = () => {
               </Route>
               <Route exact path="/">
                 <User />
+              </Route>
+              <Route exact path="/cart">
+                <Cart />
               </Route>
             </Switch>
       </Container>
