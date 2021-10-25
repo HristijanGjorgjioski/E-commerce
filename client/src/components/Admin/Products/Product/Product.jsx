@@ -15,8 +15,8 @@ const Product = ({ product, setCurrentId }) => {
     const classes = useStyles()
 
     const addToCartHandler = () => {
-        setQty(qty + 1)
-        dispatch(addToCart(qty))
+        // setQty(qty + 1)
+        // history.pushState(`/cart/${match.params.id}?qty=${qty}`)
     }
 
     return (

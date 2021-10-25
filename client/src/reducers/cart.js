@@ -1,30 +1,38 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from '../constants/actionTypes'
 
-const cartReducer = (state = { cartItems: [], shippingAddress: {} }, action) => {
+const products = JSON.parse(window.sessionStorage.getItem('products'))
+
+const cartReducer = (state = { products, cart: [], currentItem: null }, action) => {
     switch (action.type) {
         case ADD_TO_CART:
-            const item = action.payload
+            // Great Item data from products array
+            const item = state.products.find(
+                (product) => product.id === action.payload.id
+            );
+            // Check if Item is in cart already
+            const inCart = state.cart.find((item) =>
+                item.id === action.payload.id ? true : false
+            );
 
-            const existItem = state.cartItems.find((x) => x.product === item.product)
+            const cartLength = state.cart.length;
 
-            if (existItem) {
-                return {
+            return {
                 ...state,
-                cartItems: state.cartItems.map((x) =>
-                    x.product === existItem.product ? item : x
-                ),
-                }
-            } else {
-                return {
-                ...state,
-                cartItems: [...state.cartItems, item],
-                }
+                cartLength,
+                cart: inCart
+                    ? state.cart.map((item) =>
+                        item.id === action.payload.id
+                            ? { ...item, qty: item.qty + 1 }
+                            : item
+                        )
+                    : [...state.cart, { ...item, qty: 1 }],
             }
+            
         case REMOVE_FROM_CART:
             return {
                 ...state,
-                cartItems: state.cartItems.filter((x) => x.product !== action.payload),
-            }
+                cart: state.cart.filter((item) => item.id !== action.payload.id),
+            };
         default:
             return state;
     }

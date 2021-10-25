@@ -7,6 +7,8 @@ const productReducer = (state = { isLoading: true, products: [] }, action) => {
         case END_LOADING:
             return { ...state, isLoading: false };
         case FETCH_ALL:
+            window.sessionStorage.setItem('products', JSON.stringify({ ...action?.payload?.data }))
+
             return { ...state, products: action.payload.data };
         case SEARCH_PRODUCT:
             return { ...state, products: action.payload.data };
