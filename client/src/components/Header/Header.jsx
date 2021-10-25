@@ -17,8 +17,8 @@ const Header = () => {
 
   const { cartLength } = useSelector((state) => state.cartReducer)
   console.log(useSelector((state) => state.cartReducer))
-  const products = JSON.parse(window.sessionStorage.getItem('products'))
-  console.log(products)
+  // const products = JSON.parse(window.sessionStorage.getItem('products'))
+  // console.log(products)
 
   const logout = () => {
     dispatch({ type: LOGOUT })

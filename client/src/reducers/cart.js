@@ -10,9 +10,8 @@ const cartReducer = (state = { products, cart: [], currentItem: null }, action) 
             });
             // Check if Item is in cart already
             const inCart = state.cart.find((item) =>
-                item._id === action.payload.id ? true : false
+                item._id === action.payload.item._id ? true : false
             );
-            console.log(state.cart)
 
             const cartLength = state.cart.length;
 
