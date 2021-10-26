@@ -13,10 +13,6 @@ const Cart = () => {
     const { cart } = useSelector((state) => state.cartReducer)
     const totalPrice = cart.reduce((acc, curr) => acc + curr.price*curr.qty, 0)
 
-    const handleEmptyCart = () => {
-      cart.splice(0,cart.length)
-    }
-
     const renderEmptyCart = () => (
       <Typography variant="subtitle1">You have no items in your shopping cart,
         <Link className={classes.link} to="/"> start adding some</Link>!
@@ -42,13 +38,13 @@ const Cart = () => {
       </>
     );
     
-      return (
-        <Container>
-          <div className={classes.toolbar} />
-          <Typography className={classes.title} variant="h3" gutterBottom>Your Shopping Cart</Typography>
-          { !cart.length ? renderEmptyCart() : renderCart() }
-        </Container>
-      );
+    return (
+      <Container>
+        <div className={classes.toolbar} />
+        <Typography className={classes.title} variant="h3" gutterBottom>Your Shopping Cart</Typography>
+        { !cart.length ? renderEmptyCart() : renderCart() }
+      </Container>
+    );
 }
 
 export default Cart

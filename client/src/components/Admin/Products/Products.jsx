@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../../../actions/product'
 import Product from './Product/Product'
 import useStyles from './styles'
+import NoProducts from './Product/NoProducts/NoProducts'
+import noProductsImg from '../../../assets/no-data-found.png'
 
 const Products = ({ setCurrentId }) => {
     const classes = useStyles()
@@ -16,7 +18,7 @@ const Products = ({ setCurrentId }) => {
 
     const { products, isLoading } = useSelector((state) => state.productReducer)
 
-    if(!products?.length && !isLoading) return 'No products'
+    if(!products?.length && !isLoading) return <NoProducts imgSrc={noProductsImg} description={`We do not have products that you are searching for right now! We are really sorry.`} />
 
     return (
         isLoading ? <CircularProgress /> : (
