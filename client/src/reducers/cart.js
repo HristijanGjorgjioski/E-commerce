@@ -28,10 +28,31 @@ const cartReducer = (state = { products, cart: [], currentItem: null }, action) 
             }
             
         case REMOVE_FROM_CART:
+            // const inCartRemove = state.cart.find((item) => 
+            //     item._id === action.payload.item._id ? true : false
+            // );
+
+            // return {
+            //     ...state,
+            //     cart: inCartRemove
+            //         ? state.cart.map((item) => 
+            //             item._id === action.payload.item_id
+            //                 ? { ... item, qty: item.qty - 1 }
+            //                 : item
+            //             )
+            //         : [ ...state.cart, { ...item, qty: 1 } ]
+                // cart: state.cart.filter((item) => item._id !== action.payload.item._id),
+            // };
+            const index = state.cart.findIndex((item) => item._id === action.payload.item._id)
+            // const qtyZero =
             return {
                 ...state,
-                cart: state.cart.filter((item) => item._id !== action.payload._id),
-            };
+                cart: state.cart.map((item) =>
+                    item._id === action.payload.item._id
+                        ? { ...item, qty: item.qty - 1 }
+                        : item
+                    ).filter((item) => item.qty > 0)
+            }
         default:
             return state;
     }
