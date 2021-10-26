@@ -22,7 +22,7 @@ const CartItem = () => {
                 </CardContent>
                 <CardActions className={classes.cardActions}>
                     <div className={classes.buttons}>
-                    <IconButton type="button" size="small" color="secondary">
+                    <IconButton type="button" size="small" color="secondary" onClick={() => dispatch(removeFromCart(item))}>
                         <RemoveShoppingCart />
                     </IconButton>
                     <Typography>&nbsp;{item.qty}&nbsp;</Typography>
@@ -30,7 +30,6 @@ const CartItem = () => {
                         <AddShoppingCart />
                     </IconButton>
                     </div>
-                    {/* <Button variant="contained" type="button" color="secondary">Remove</Button> */}
                 </CardActions>
             </Card>
         )

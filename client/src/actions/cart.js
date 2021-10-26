@@ -12,14 +12,19 @@ export const addToCart = (item) => async (dispatch) => {
     }
 };
 
-export const removeFromCart = (id) => async (dispatch, getState) => {
+export const removeFromCart = (item) => async (dispatch) => {
     try {
-        dispatch({
-            type: REMOVE_FROM_CART,
-            payload: id,
-        })
+        dispatch({ type: START_LOADING })
+
+        dispatch({ type: REMOVE_FROM_CART, payload: { item } })
+
+        dispatch({ type: END_LOADING })
+        // dispatch({
+        //     type: REMOVE_FROM_CART,
+        //     payload: id,
+        // })
         
-        localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
+        // localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
     } catch (error) {
         console.log(error)
     }
