@@ -6,6 +6,8 @@ import { Button, Container, Grid, Typography } from '@material-ui/core';
 import CartItem from './CartItem/CartItem'
 import useStyles from './styles'
 import { emptyCart } from '../../../actions/cart';
+import NoProducts from '../../Admin/Products/Product/NoProducts/NoProducts';
+import emptyCartImg from '../../../assets/empty-cart.png'
 
 const Cart = () => {
     const classes = useStyles()
@@ -14,9 +16,7 @@ const Cart = () => {
     const totalPrice = cart.reduce((acc, curr) => acc + curr.price*curr.qty, 0)
 
     const renderEmptyCart = () => (
-      <Typography variant="subtitle1">You have no items in your shopping cart,
-        <Link className={classes.link} to="/"> start adding some</Link>!
-      </Typography>
+      <NoProducts imgSrc={emptyCartImg} description={`Your cart is empty. Add some products!`} />
     );
 
     const renderCart = () => (
@@ -41,7 +41,6 @@ const Cart = () => {
     return (
       <Container>
         <div className={classes.toolbar} />
-        <Typography className={classes.title} variant="h3" gutterBottom>Your Shopping Cart</Typography>
         { !cart.length ? renderEmptyCart() : renderCart() }
       </Container>
     );
