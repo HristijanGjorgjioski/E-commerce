@@ -10,11 +10,39 @@ const Cart = () => {
     const classes = useStyles()
     const { cart } = useSelector((state) => state.cartReducer)
     const totalPrice = cart.reduce((acc, curr) => acc + curr.price*curr.qty, 0)
+
+    const handleEmptyCart = () => {}
+
+    const renderEmptyCart = () => (
+      <Typography variant="subtitle1">You have no items in your shopping cart,
+        <Link className={classes.link} to="/">start adding some</Link>!
+      </Typography>
+    );
+
+    const renderCart = () => (
+      <>
+        <Grid container spacing={3}>
+          {cart.map((item) => (
+            <Grid item xs={12} sm={4} key={item._id}>
+              <CartItem item={item} />
+            </Grid>
+          ))}
+        </Grid>
+        <div className={classes.cardDetails}>
+          <Typography variant="h4">Subtotal: {totalPrice}</Typography>
+          <div>
+            <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart}>Empty cart</Button>
+            <Button className={classes.checkoutButton} component={Link} to="/checkout" size="large" type="button" variant="contained" color="primary">Checkout</Button>
+          </div>
+        </div>
+      </>
+    );
     
       return (
         <Container>
+          <div className={classes.toolbar} />
           <Typography className={classes.title} variant="h3" gutterBottom>Your Shopping Cart</Typography>
-          <CartItem />
+          { !cart.length ? renderEmptyCart() : renderCart() }
         </Container>
       );
 }
