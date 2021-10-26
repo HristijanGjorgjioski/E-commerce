@@ -1,4 +1,4 @@
-import { ADD_TO_CART, END_LOADING, REMOVE_FROM_CART, START_LOADING } from '../constants/actionTypes'
+import { ADD_TO_CART, EMPTY_CART, END_LOADING, REMOVE_FROM_CART, START_LOADING } from '../constants/actionTypes'
 
 export const addToCart = (item) => async (dispatch) => {
     try {
@@ -23,3 +23,15 @@ export const removeFromCart = (item) => async (dispatch) => {
         console.log(error)
     }
 };
+
+export const emptyCart = () => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING })
+
+        dispatch({ type: EMPTY_CART })
+
+        dispatch({ type: END_LOADING })
+    } catch (error) {
+        console.log(error)
+    }
+}

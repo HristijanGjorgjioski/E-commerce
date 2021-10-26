@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from '../constants/actionTypes'
+import { ADD_TO_CART, EMPTY_CART, REMOVE_FROM_CART } from '../constants/actionTypes'
 
 const products = JSON.parse(window.sessionStorage.getItem('products'))
 const cartReducer = (state = { products, cart: [], currentItem: null }, action) => {
@@ -38,6 +38,8 @@ const cartReducer = (state = { products, cart: [], currentItem: null }, action) 
                         )
                     .filter((item) => item.qty > 0)
             }
+        case EMPTY_CART:
+            return { ...state, cart: [] }
         default:
             return state;
     }

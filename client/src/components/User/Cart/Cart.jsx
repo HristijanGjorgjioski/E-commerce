@@ -1,21 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Container, Grid, Typography } from '@material-ui/core';
 
 import CartItem from './CartItem/CartItem'
 import useStyles from './styles'
+import { emptyCart } from '../../../actions/cart';
 
 const Cart = () => {
     const classes = useStyles()
+    const dispatch = useDispatch()
     const { cart } = useSelector((state) => state.cartReducer)
     const totalPrice = cart.reduce((acc, curr) => acc + curr.price*curr.qty, 0)
 
-    const handleEmptyCart = () => {}
+    const handleEmptyCart = () => {
+      cart.splice(0,cart.length)
+    }
 
     const renderEmptyCart = () => (
       <Typography variant="subtitle1">You have no items in your shopping cart,
-        <Link className={classes.link} to="/">start adding some</Link>!
+        <Link className={classes.link} to="/"> start adding some</Link>!
       </Typography>
     );
 
@@ -29,9 +33,9 @@ const Cart = () => {
           ))}
         </Grid>
         <div className={classes.cardDetails}>
-          <Typography variant="h4">Subtotal: {totalPrice}</Typography>
+          <Typography variant="h4">Subtotal: ${totalPrice}</Typography>
           <div>
-            <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={handleEmptyCart}>Empty cart</Button>
+            <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary" onClick={() => dispatch(emptyCart())}>Empty cart</Button>
             <Button className={classes.checkoutButton} component={Link} to="/checkout" size="large" type="button" variant="contained" color="primary">Checkout</Button>
           </div>
         </div>
