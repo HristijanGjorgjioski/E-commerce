@@ -10,6 +10,7 @@ import Login from './components/Login/Login'
 
 import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 import Cart from './components/User/Cart/Cart'
+import Checkout from './components/User/CheckoutForm/Checkout/Checkout'
 
 const App = () => {
   return (
@@ -29,6 +30,10 @@ const App = () => {
               <Route exact path="/cart">
                 <Header />
                 <Cart />
+              </Route>
+              <Route exact path="/checkout">
+                <Header />
+                <Checkout />
               </Route>
             </Switch>
       </Container>
