@@ -29,7 +29,6 @@ const Form = ({ currentId, setCurrentId }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(productData)
         if (currentId === 0) {
             dispatch(createProduct(productData, history));
             clear();

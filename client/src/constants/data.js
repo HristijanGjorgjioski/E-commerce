@@ -7,6 +7,10 @@ export const collectionData = [
     { name: 'Jackets' },
     { name: 'T-Shirts' },
     { name: 'Jeans' },
+    { name: 'Bikini' },
+    { name: 'Underwear' },
+    { name: 'Bra' },
+    { name: 'Gloves' },
 ];
 
 export const sizeData = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 39, 40, 41, 42];
