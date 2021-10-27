@@ -42,7 +42,6 @@ const Header = () => {
         <Badge  component={Link} to="/cart" style={{ marginRight: '15px' }} badgeContent={cart.length} color="secondary">
           <ShoppingCart />
         </Badge>
-        <Button component={Link} to="/login" variant="contained" color="primary">Admin</Button>
       </Toolbar>
     </AppBar>
   )
