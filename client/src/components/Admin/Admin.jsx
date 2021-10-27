@@ -5,6 +5,7 @@ import useStyles from './styles'
 import Products from './Products/Products'
 import Form from './Form/Form'
 import Header from '../Header/Header'
+import FilterForm from '../User/FilterForm/FilterForm'
 
 const Admin = () => {
     const classes = useStyles()
@@ -14,10 +15,14 @@ const Admin = () => {
         <Grow in>
             <Container maxWidth="xl">
                 <Header />
+                <FilterForm />
                 <Grid container justify="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
                     <Grid item xs={12} sm={6} md={9}>
                         <Products setCurrentId={setCurrentId} />
                     </Grid>
+                    {/* <Grid item xs={12} sm={6} md={9}>
+                        <FilterForm />
+                    </Grid> */}
                     <Grid item xs={12} sm={6} md={3}>
                         <Form currentId={currentId} setCurrentId={setCurrentId} />
                     </Grid>
