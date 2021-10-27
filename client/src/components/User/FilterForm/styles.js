@@ -10,7 +10,7 @@ export default makeStyles((theme) => ({
         padding: theme.spacing(0),
         marginTop: '0%',
         marginBottom: '3%',
-        width: '60%',
+        width: '31%',
       },
       form: {
         width: '100%',
@@ -18,12 +18,16 @@ export default makeStyles((theme) => ({
         flexWrap: 'wrap',
         justifyContent: 'center',
       },
-      fileInput: {
-        width: '97%',
-        margin: '10px 0',
+      formControl: {
+        width: '49%'
       },
       buttonSubmit: {
         marginBottom: 10,
+      },
+      selectSubDiv: {
+        display: 'flex',
+        flexGrow: 3,
+        justifyContent: 'space-between',
       },
       selectDiv: {
         padding: theme.spacing(1),
@@ -31,4 +35,28 @@ export default makeStyles((theme) => ({
         flexGrow: 3,
         justifyContent: 'space-between',
     },
+    [theme.breakpoints.down('sm')]: {
+      paper: {
+        width: '100%'
+      },
+      // form: {
+      //   flexDirection: 'column'
+      // },
+
+      selectDiv: {
+        padding: theme.spacing(0),
+        display: 'flex',
+        flexDirection: 'column',
+        // justifyContent: 'center',
+        alignItems: 'center'
+      },
+      selectSubDiv: {
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'space-around'
+      },
+      formControl: {
+        width: '48%'
+      },
+    }
 }));

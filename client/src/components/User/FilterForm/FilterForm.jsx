@@ -19,7 +19,8 @@ const FilterForm = () => {
         <Paper elevation={6} className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`}>
                 <div className={classes.selectDiv}>
-                    <FormControl style={{ width: '33%' }}>
+                    <div className={classes.selectSubDiv}>
+                    <FormControl className={classes.formControl}>
                         <InputLabel id="collection-label">Collection</InputLabel>
                         <Select
                             labelId="collection-label"
@@ -31,7 +32,7 @@ const FilterForm = () => {
                             {collectionData.map((d) => <MenuItem key={d.name} value={d.name}>{d.name}</MenuItem>)}
                         </Select>
                     </FormControl>
-                    <FormControl style={{ width: '33%' }}>
+                    <FormControl className={classes.formControl}>
                         <InputLabel id="size-label">Size</InputLabel>
                         <Select
                             labelId="size-label"
@@ -43,11 +44,14 @@ const FilterForm = () => {
                             {sizeData.map((s) => <MenuItem key={s} value={s}>{s}</MenuItem>)}
                         </Select>
                     </FormControl>
+                    </div>
+                    <div className={classes.radioDiv}>
                     <FormControl>
                         <RadioGroup row aria-label="gender" name="radio-buttons-group" onChange={(e) => {setSearchData({ ...searchData, gender: e.target.value });}}>
                             {genderData.map((g, i) => <FormControlLabel key={i} value={g} control={<Radio />} label={<Typography variant="body2">{g}</Typography>} />)}
                         </RadioGroup>
                     </FormControl>
+                    </div>
                 </div>
             </form>
         </Paper>
