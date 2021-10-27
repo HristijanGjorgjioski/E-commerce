@@ -14,8 +14,8 @@ const CartItem = ({ item }) => {
         <Card key={item._id} className="cart-item">
             <CardMedia image={item.imageUrl} alt={item.title} className={classes.media} />
             <CardContent className={classes.cardContent}>
-                <Typography variant="h4">{item.title}</Typography>
-                <Typography variant="h5">${item.price}</Typography>
+                <Typography variant="h6">{item.title}</Typography>
+                <Typography variant="h6">${item.price}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
                 <div className={classes.buttons}>

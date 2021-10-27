@@ -23,7 +23,7 @@ const Cart = () => {
       <>
         <Grid container spacing={3}>
           {cart.map((item) => (
-            <Grid item xs={12} sm={4} key={item._id}>
+            <Grid item xs={12} sm={3} key={item._id}>
               <CartItem item={item} />
             </Grid>
           ))}
