@@ -13,5 +13,5 @@ export const collectionData = [
     { name: 'Gloves' },
 ];
 
-export const sizeData = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 39, 40, 41, 42];
+export const sizeData = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 38, 39, 40, 41, 42];
 

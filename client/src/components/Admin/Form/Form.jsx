@@ -25,6 +25,7 @@ const Form = ({ currentId, setCurrentId }) => {
     useEffect(() => {
         if (!product?.title) clear();
         if (product) setProductData(product);
+        console.log(productData)
     }, [product]);
 
     const handleSubmit = (e) => {
@@ -41,7 +42,7 @@ const Form = ({ currentId, setCurrentId }) => {
     return (
         <Paper className={classes.paper} elevation={6}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-                <Typography variant="h6">{currentId ? `Editing "${productData.title}"` : 'Create Product'}</Typography>
+                <Typography variant="h6">{currentId ? `Editing "${productData.title}"` : 'Create a Product'}</Typography>
                 <TextField disabled name="createdBy" variant="outlined" fullWidth value={username} />
                 <TextField required name="title" variant="outlined" label="Title" fullWidth value={productData.title} onChange={(e) => setProductData({ ...productData, title: e.target.value })} />
                 <TextField required name="price" type="number" variant="outlined" label="Price $" fullWidth value={productData.price} onChange={(e) => setProductData({ ...productData, price: e.target.value })} />
@@ -59,25 +60,18 @@ const Form = ({ currentId, setCurrentId }) => {
                         </Select>
                     </FormControl>
                 </div>
-                    <FormControl required style={{ width: '100%', display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
-                        {/* <InputLabel id="size-label">Size</InputLabel>
-                        <Select
-                            labelId="size-label"
-                            id="size-label-id"
-                            label="Size"
-                            value={productData.size}
-                            onChange={(e) => setProductData({ ...productData, size: e.target.value })}
-                        >
-                    </Select> */}
-                    {sizeData.map((s) => 
-                        <FormControlLabel
-                            style={{ flex: '1 0 21%' }}
-                            key={s}
-                            control={<Checkbox />}
-                            label={s}
-                        />
-                    )}
-
+                    <FormControl required className={classes.checkBoxControl}>
+                        <Typography variant="h6">Choose available sizes:</Typography>
+                        {sizeData.map((s) => 
+                            <FormControlLabel
+                                style={{ flex: '1 0 21%' }}
+                                key={s}
+                                label={s}
+                                value={s}
+                                control={<Checkbox />}
+                                onChange={(e) => setProductData({ ...productData, size: [ ...productData.size, e.target.value ] })}
+                            />
+                        )}
                     </FormControl>
                 <FormControl required>
                     <RadioGroup row aria-label="gender" name="radio-buttons-group" onChange={(e) => setProductData({ ...productData, gender: e.target.value })}>

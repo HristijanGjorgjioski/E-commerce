@@ -28,4 +28,11 @@ export default makeStyles((theme) => ({
     flexGrow: 2,
     justifyContent: 'space-between',
   },
+  checkBoxControl: {
+    width: '100%', 
+    display: 'flex', 
+    flexDirection: 'row', 
+    flexWrap: 'wrap', 
+    marginTop: '10px'
+  }
 }));
