@@ -19,7 +19,7 @@ export default makeStyles((theme) => ({
         justifyContent: 'center',
       },
       formControl: {
-        width: '49%'
+        width: '95%'
       },
       buttonSubmit: {
         marginBottom: 10,
@@ -39,15 +39,10 @@ export default makeStyles((theme) => ({
       paper: {
         width: '100%'
       },
-      // form: {
-      //   flexDirection: 'column'
-      // },
-
       selectDiv: {
         padding: theme.spacing(0),
         display: 'flex',
-        flexDirection: 'column',
-        // justifyContent: 'center',
+        flexDirection: 'row',
         alignItems: 'center'
       },
       selectSubDiv: {
@@ -56,7 +51,7 @@ export default makeStyles((theme) => ({
         justifyContent: 'space-around'
       },
       formControl: {
-        width: '48%'
+        width: '80%'
       },
     }
 }));

@@ -20,37 +20,25 @@ const FilterForm = () => {
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`}>
                 <div className={classes.selectDiv}>
                     <div className={classes.selectSubDiv}>
-                    <FormControl className={classes.formControl}>
-                        <InputLabel id="collection-label">Collection</InputLabel>
-                        <Select
-                            labelId="collection-label"
-                            id="collection-label-id"
-                            label="Collection"
-                            value={searchData.selection}
-                            onChange={(e) => {setSearchData({ ...searchData, selection: e.target.value });}}
-                        >
-                            {collectionData.map((d) => <MenuItem key={d.name} value={d.name}>{d.name}</MenuItem>)}
-                        </Select>
-                    </FormControl>
-                    <FormControl className={classes.formControl}>
-                        <InputLabel id="size-label">Size</InputLabel>
-                        <Select
-                            labelId="size-label"
-                            id="size-label-id"
-                            label="Size"
-                            value={searchData.size}
-                            onChange={(e) => {setSearchData({ ...searchData, size: e.target.value });}}
-                        >
-                            {sizeData.map((s) => <MenuItem key={s} value={s}>{s}</MenuItem>)}
-                        </Select>
-                    </FormControl>
+                        <FormControl className={classes.formControl}>
+                            <InputLabel id="collection-label">Collection</InputLabel>
+                            <Select
+                                labelId="collection-label"
+                                id="collection-label-id"
+                                label="Collection"
+                                value={searchData.selection}
+                                onChange={(e) => {setSearchData({ ...searchData, selection: e.target.value });}}
+                            >
+                                {collectionData.map((d) => <MenuItem key={d.name} value={d.name}>{d.name}</MenuItem>)}
+                            </Select>
+                        </FormControl>
                     </div>
                     <div className={classes.radioDiv}>
-                    <FormControl>
-                        <RadioGroup row aria-label="gender" name="radio-buttons-group" onChange={(e) => {setSearchData({ ...searchData, gender: e.target.value });}}>
-                            {genderData.map((g, i) => <FormControlLabel key={i} value={g} control={<Radio />} label={<Typography variant="body2">{g}</Typography>} />)}
-                        </RadioGroup>
-                    </FormControl>
+                        <FormControl>
+                            <RadioGroup row aria-label="gender" name="radio-buttons-group" onChange={(e) => {setSearchData({ ...searchData, gender: e.target.value });}}>
+                                {genderData.map((g, i) => <FormControlLabel key={i} value={g} control={<Radio />} label={<Typography variant="body2">{g}</Typography>} />)}
+                            </RadioGroup>
+                        </FormControl>
                     </div>
                 </div>
             </form>
