@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Container, Grid, Grow } from '@material-ui/core'
 
 import useStyles from './styles'
-import Products from './Products/Products'
+import Products from '../Products/Products'
 import Form from './Form/Form'
 import Header from '../Header/Header'
 import FilterForm from '../User/FilterForm/FilterForm'

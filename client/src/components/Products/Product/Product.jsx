@@ -5,8 +5,8 @@ import { AddShoppingCart, Delete, Edit } from '@material-ui/icons'
 import { useDispatch } from 'react-redux';
 
 import useStyles from './styles'
-import { deleteProduct } from '../../../../actions/product';
-import { addToCart } from '../../../../actions/cart';
+import { deleteProduct } from '../../../actions/product';
+import { addToCart } from '../../../actions/cart' 
 
 const Product = ({ product, setCurrentId }) => {
     const user = JSON.parse(localStorage.getItem('profile'))

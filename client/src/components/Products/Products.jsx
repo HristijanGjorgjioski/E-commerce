@@ -2,11 +2,11 @@ import React, { useEffect } from 'react'
 import { Grid, CircularProgress } from '@material-ui/core'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getProducts } from '../../../actions/product'
+import { getProducts } from '../../actions/product'
 import Product from './Product/Product'
 import useStyles from './styles'
 import NoProducts from './Product/NoProducts/NoProducts'
-import noProductsImg from '../../../assets/no-products-found.png'
+import noProductsImg from '../../assets/no-products-found.png'
 
 const Products = ({ setCurrentId }) => {
     const classes = useStyles()
