@@ -25,9 +25,6 @@ const Product = ({ product, setCurrentId }) => {
                         ${product.price}
                     </Typography>
                     <Typography variant="body1" component="h5">
-                        Size: {product.size}
-                    </Typography>
-                    <Typography variant="body1" component="h5">
                         Gender: {product.gender}
                     </Typography>
                     <Typography variant="body1" component="h2">
