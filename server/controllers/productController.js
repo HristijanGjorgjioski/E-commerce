@@ -30,6 +30,18 @@ export const searchProductByFilter = async (req, res) => {
     }
 }
 
+export const getProduct = async (req, res) => { 
+    const { id } = req.params;
+
+    try {
+        const product = await Product.findById(id);
+        
+        res.status(200).json(product);
+    } catch (error) {
+        res.status(404).json({ message: "Something went wrong" });
+    }
+}
+
 export const createProduct = async (req, res) => {
     const { createdBy, title, description, price, selection, size, gender, imageUrl } = req.body
 
