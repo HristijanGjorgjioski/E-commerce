@@ -62,7 +62,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 </div>
                     <FormControl required className={classes.checkBoxControl}>
                         <Typography variant="h6">Choose available sizes:</Typography>
-                        {sizeData.map((s) => 
+                        {sizeData.map((s) =>
                             <FormControlLabel
                                 style={{ flex: '1 0 21%' }}
                                 key={s}

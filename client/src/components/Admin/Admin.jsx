@@ -5,7 +5,7 @@ import useStyles from './styles'
 import Products from '../Products/Products'
 import Form from './Form/Form'
 import Header from '../Header/Header'
-import FilterForm from '../User/FilterForm/FilterForm'
+import FilterForm from '../FilterForm/FilterForm'
 
 const Admin = () => {
     const classes = useStyles()
