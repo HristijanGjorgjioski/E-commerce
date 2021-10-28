@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, FormControl, FormControlLabel, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TextField, Typography } from '@material-ui/core'
+import { Button, FormControl, FormControlLabel, InputLabel, MenuItem, Paper, Radio, RadioGroup, Select, TextField, Typography, Checkbox } from '@material-ui/core'
 import FileBase from 'react-file-base64'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
@@ -11,7 +11,7 @@ import { sizeData, collectionData, genderData } from '../../../constants/data'
 const Form = ({ currentId, setCurrentId }) => {
     const user = JSON.parse(localStorage.getItem('profile'))
     const username = user.result.username
-    const [productData, setProductData] = useState({ title: '', selection: '', imageUrl: '', price: '', size: '', gender: '', createdBy: username })
+    const [productData, setProductData] = useState({ title: '', selection: '', imageUrl: '', price: '', size: [], gender: '', createdBy: username })
     const product = useSelector((state) => (currentId ? state.productReducer.products.find((p) => p._id === currentId) : null))
     const classes = useStyles()
     const dispatch = useDispatch()
@@ -19,7 +19,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
     const clear = () => {
         setCurrentId(0);
-        setProductData({ title: '', imageUrl: '', size: '', selection: '', price: '', gender: '' });
+        setProductData({ title: '', imageUrl: '', size: [], selection: '', price: '', gender: '' });
     };
 
     useEffect(() => {
@@ -46,7 +46,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 <TextField required name="title" variant="outlined" label="Title" fullWidth value={productData.title} onChange={(e) => setProductData({ ...productData, title: e.target.value })} />
                 <TextField required name="price" type="number" variant="outlined" label="Price $" fullWidth value={productData.price} onChange={(e) => setProductData({ ...productData, price: e.target.value })} />
                 <div className={classes.selectDiv}>
-                    <FormControl required style={{ width: '46%' }}>
+                    <FormControl required style={{ width: '100%' }}>
                         <InputLabel id="collection-label">Collection</InputLabel>
                         <Select
                             labelId="collection-label"
@@ -58,8 +58,9 @@ const Form = ({ currentId, setCurrentId }) => {
                             {collectionData.map((d) => <MenuItem key={d.name} value={d.name}>{d.name}</MenuItem>)}
                         </Select>
                     </FormControl>
-                    <FormControl required style={{ width: '46%' }}>
-                        <InputLabel id="size-label">Size</InputLabel>
+                </div>
+                    <FormControl required style={{ width: '100%', display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+                        {/* <InputLabel id="size-label">Size</InputLabel>
                         <Select
                             labelId="size-label"
                             id="size-label-id"
@@ -67,10 +68,17 @@ const Form = ({ currentId, setCurrentId }) => {
                             value={productData.size}
                             onChange={(e) => setProductData({ ...productData, size: e.target.value })}
                         >
-                            {sizeData.map((s) => <MenuItem key={s} value={s}>{s}</MenuItem>)}
-                        </Select>
+                    </Select> */}
+                    {sizeData.map((s) => 
+                        <FormControlLabel
+                            style={{ flex: '1 0 21%' }}
+                            key={s}
+                            control={<Checkbox />}
+                            label={s}
+                        />
+                    )}
+
                     </FormControl>
-                </div>
                 <FormControl required>
                     <RadioGroup row aria-label="gender" name="radio-buttons-group" onChange={(e) => setProductData({ ...productData, gender: e.target.value })}>
                         {genderData.map((g, i) => <FormControlLabel key={i} value={g} control={<Radio />} label={g} />)}
