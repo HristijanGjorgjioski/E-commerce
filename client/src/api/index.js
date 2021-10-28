@@ -9,6 +9,7 @@ export const createAdmin = (formData) => API.post('/user/addAdmin', formData);
 // PRODUCT APIs
 
     // GET APIS
+export const getProduct = (id) => API.get(`/${id}`);
 export const getProducts = () => API.get('/product/get-all-products');
 export const searchProduct = ({ gender, size, selection }) => API.get(`/product/search?gender=${gender}&size=${size}&collection=${selection}`);
 
