@@ -1,7 +1,7 @@
 import { CREATE_PRODUCT, DELETE_PRODUCT, END_LOADING, FETCH_ALL, SEARCH_PRODUCT, START_LOADING, UPDATE_PRODUCT } from '../constants/actionTypes'
 import * as api from '../api/index.js'
 
-export const getProducts = () => async(dispatch) => {
+export const getProducts = () => async (dispatch) => {
     try {
         dispatch({ type: START_LOADING })
 
@@ -10,6 +10,14 @@ export const getProducts = () => async(dispatch) => {
         dispatch({ type: FETCH_ALL, payload: data })
         sessionStorage.setItem('products', JSON.stringify(data))
         dispatch({ type: END_LOADING })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getProduct = (id) => async (dispatch) => {
+    try {
+        
     } catch (error) {
         console.log(error)
     }
