@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Container } from '@material-ui/core';
 
 import { getProduct } from '../../../actions/product';
 
@@ -12,10 +13,12 @@ const ProductDetails = () => {
       }, [id]);
 
     return (
-        <div>
-            ProductDetails
-        </div>
+        <Container>
+            <div>
+
+            </div>
+        </Container>
     )
 }
 
-export default ProductDetails
+export default ProductDetails;

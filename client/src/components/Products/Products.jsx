@@ -9,8 +9,8 @@ import NoProducts from './Product/NoProducts/NoProducts'
 import noProductsImg from '../../assets/no-products-found.png'
 
 const Products = ({ setCurrentId }) => {
-    const classes = useStyles()
-    const dispatch = useDispatch()
+    const classes = useStyles();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getProducts())
