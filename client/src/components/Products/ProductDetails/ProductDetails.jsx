@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { CardMedia, Container, Typography } from '@material-ui/core';
+import { CardMedia, Container, Paper, Typography } from '@material-ui/core';
 
 import { getProduct } from '../../../actions/product';
+import useStyles from './styles'
 
 const ProductDetails = () => {
     const { product, products, isLoading } = useSelector((state) => state.productReducer);
     const dispatch = useDispatch();
     const { id } = useParams();
-    
+    const classes = useStyles()
     
     useEffect(() => {
         dispatch(getProduct(id));
@@ -17,24 +18,25 @@ const ProductDetails = () => {
     }, [id]);
     
     return (
-        <Container className={''}>
-            <CardMedia className="card-media">
-                <img src={product?.imageUrl} alt={product.title} />
-            </CardMedia>
-            <div className="product-info">
-                <Typography component="h5">{product.title}</Typography>
-                <p className="item-price"><b>${product.price}.00</b></p>
-                {/* <p className="item-desc">{product.desc}</p> */}
-                <br></br>
-                <div>
-                    <p className="item-size-text">SIZE</p>
-                    <p className="item-size-star">*</p>
-                    <p className="item-size-selected">{product.size}</p>
-                </div>
-                <br></br>
-                <button className="btn-add"><b>ADD TO CART</b></button>
+        <Paper style={{ padding: '20px', borderRadius: '15px' }} elevation={6}>
+            <div className={classes.imageSection}>
+                <img className={classes.media} src={product.imageUrl} alt={product.title} />
             </div>
-        </Container>
+            <div className={classes.section}>
+            <Typography gutterBottom variant="h5" component="h2">
+                        {product.title}
+                    </Typography>
+                    <Typography variant="h6" component="h2">
+                        ${product.price}
+                    </Typography>
+                    <Typography variant="body1" component="h5">
+                        Gender: {product.gender}
+                    </Typography>
+                    <Typography variant="body1" component="h2">
+                        Collection: {product.selection}
+                    </Typography>
+            </div>
+        </Paper>
     )
 }
 
