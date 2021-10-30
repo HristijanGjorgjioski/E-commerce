@@ -9,7 +9,7 @@ const ProductDetails = () => {
     const { product, products, isLoading } = useSelector((state) => state.productReducer);
     const dispatch = useDispatch();
     const { id } = useParams();
-
+    
     
     useEffect(() => {
         dispatch(getProduct(id));
@@ -19,7 +19,7 @@ const ProductDetails = () => {
     return (
         <Container>
             <div>
-                {/* <h1>{product.title}</h1> */}
+                <img src={product?.imageUrl} />
             </div>
         </Container>
     )

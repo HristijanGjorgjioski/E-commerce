@@ -9,7 +9,7 @@ const productReducer = (state = { isLoading: true, products: [] }, action) => {
         case FETCH_ALL:
             return { ...state, products: action.payload.data };
         case FETCH_ONE:
-            return { ...state, product: action.payload.data };
+            return { ...state, product: action.payload.product };
         case SEARCH_PRODUCT:
             return { ...state, products: action.payload.data };
         case CREATE_PRODUCT:

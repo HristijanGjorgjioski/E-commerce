@@ -22,7 +22,7 @@ export const getProduct = (id) => async (dispatch) => {
         const { data } = await api.getProduct(id);
         console.log(data)
 
-        dispatch({ type: FETCH_ONE, payload: data });
+        dispatch({ type: FETCH_ONE, payload: { product: data } });
 
         dispatch({ type: END_LOADING });
     } catch (error) {
