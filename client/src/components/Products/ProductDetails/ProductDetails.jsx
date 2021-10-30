@@ -10,12 +10,12 @@ const ProductDetails = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
 
-    console.table(product)
-
+    
     useEffect(() => {
         dispatch(getProduct(id));
-      }, [id]);
-
+        console.log(product)
+    }, [id]);
+    
     return (
         <Container>
             <div>
