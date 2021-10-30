@@ -1,6 +1,6 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
-import { Card, CardMedia, Typography, CardActions, CardContent, IconButton, Button } from '@material-ui/core'
+import { Card, CardMedia, Typography, CardActions, CardContent, IconButton, Button, ButtonBase } from '@material-ui/core'
 import { AddShoppingCart, Delete, Edit } from '@material-ui/icons'
 import { useDispatch } from 'react-redux';
 
@@ -13,8 +13,18 @@ const Product = ({ product, setCurrentId }) => {
     const dispatch = useDispatch();
     const classes = useStyles()
 
+    const openProduct = (e) => {
+        history.push(`/product/${product._id}`)
+    }
+
     return (
         <Card className={classes.root}>
+            <ButtonBase
+                component="span"
+                name="test"
+                className={classes.cardAction}
+                onClick={openProduct}
+            >
             <CardMedia className={classes.media} image={product.imageUrl || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={product.title} />
             <CardContent>
                 <div className={classes.cardContent}>
@@ -32,6 +42,7 @@ const Product = ({ product, setCurrentId }) => {
                     </Typography>
                 </div>
             </CardContent>
+            </ButtonBase>
             {user ? (
                 <CardActions disableSpacing className={classes.cardActions}>
                     <IconButton aria-label="Delete Product" onClick={() => dispatch(deleteProduct(product._id))}>

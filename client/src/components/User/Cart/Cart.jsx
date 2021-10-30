@@ -6,8 +6,9 @@ import { Button, Container, Grid, Typography } from '@material-ui/core';
 import CartItem from './CartItem/CartItem'
 import useStyles from './styles'
 import { emptyCart } from '../../../actions/cart';
-import NoProducts from '../../Admin/Products/Product/NoProducts/NoProducts';
+
 import emptyCartImg from '../../../assets/empty-cart.png'
+import NoProducts from '../../Products/Product/NoProducts/NoProducts';
 
 const Cart = () => {
     const classes = useStyles()
