@@ -36,7 +36,7 @@ const App = () => {
                 <Header />
                 <Checkout />
               </Route>
-              <Route exact path="/checkout">
+              <Route exact path="/product/:id">
                 <Header />
                 <ProductDetails />
               </Route>

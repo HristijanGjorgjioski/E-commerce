@@ -17,15 +17,15 @@ export const getProducts = () => async (dispatch) => {
 
 export const getProduct = (id) => async (dispatch) => {
     try {
-        dispatch({ type: START_LOADING })
+        dispatch({ type: START_LOADING });
 
-        const { data } = await api.getProduct(id)
+        const { data } = await api.getProduct(id);
 
-        dispatch({ type: FETCH_ONE, payload: { product: data } })
+        dispatch({ type: FETCH_ONE, payload: { product: data } });
 
-        dispatch({ type: END_LOADING })
+        dispatch({ type: END_LOADING });
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 }
 

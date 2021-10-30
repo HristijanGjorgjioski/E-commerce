@@ -10,6 +10,8 @@ const ProductDetails = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
 
+    console.table(product)
+
     useEffect(() => {
         dispatch(getProduct(id));
       }, [id]);
@@ -17,7 +19,7 @@ const ProductDetails = () => {
     return (
         <Container>
             <div>
-                <h1>{product.title}</h1>
+                {/* <h1>{product.title}</h1> */}
             </div>
         </Container>
     )
