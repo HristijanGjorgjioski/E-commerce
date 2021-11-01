@@ -5,15 +5,15 @@ const cartReducer = (state = { products, cart: [], currentItem: null }, action) 
     switch (action.type) {
         case ADD_TO_CART:
             // Great Item data from products array
-            const item = state.products.data.find((product) => {
+            const item = state?.products?.data?.find((product) => {
                 return product._id === action.payload.item._id
             });
             // Check if Item is in cart already
-            const inCart = state.cart.find((item) =>
+            const inCart = state?.cart?.find((item) =>
                 item._id === action.payload.item._id ? true : false
             );
 
-            const totalPrice = state.cart.reduce((acc, curr) => acc + curr.price*curr.qty, 0);
+            const totalPrice = state?.cart?.reduce((acc, curr) => acc + curr.price*curr.qty, 0);
 
             return {
                 ...state,
