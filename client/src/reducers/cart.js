@@ -1,6 +1,6 @@
 import { ADD_TO_CART, EMPTY_CART, REMOVE_FROM_CART } from '../constants/actionTypes'
 
-const products = JSON.parse(window.sessionStorage.getItem('products'))
+const products = JSON.parse(window.localStorage.getItem('products'))
 const cartReducer = (state = { products, cart: [], currentItem: null }, action) => {
     switch (action.type) {
         case ADD_TO_CART:
