@@ -22,7 +22,7 @@ export default makeStyles((theme) => ({
     width: '100%',
     height: '400px',
   },
-  section: {
+  infoSection: {
     display: 'flex',
     // alignItems: 'center',
     flexDirection: 'column',
@@ -57,7 +57,7 @@ export default makeStyles((theme) => ({
     imageSection: {
       width: '100%'
     },
-    section: {
+    infoSection: {
       width: '100%'
     }
   }

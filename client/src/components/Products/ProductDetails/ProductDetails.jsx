@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { Button, Checkbox, CircularProgress, FormControl, FormControlLabel, Paper, Typography } from '@material-ui/core';
 
 import { getProduct } from '../../../actions/product';
@@ -8,7 +8,7 @@ import useStyles from './styles'
 import { addToCart } from '../../../actions/cart';
 
 const ProductDetails = () => {
-    const { product, products, isLoading } = useSelector((state) => state.productReducer);
+    const { product, isLoading } = useSelector((state) => state.productReducer);
     const dispatch = useDispatch();
     const { id } = useParams();
     const classes = useStyles()
@@ -25,14 +25,12 @@ const ProductDetails = () => {
         );
     }
     
-    const recommendedPosts = products.filter(({ _id }) => _id !== product._id);
-    
     return (
         <Paper className={classes.paper} elevation={6}>
             <div className={classes.imageSection}>
                 <img className={classes.media} src={product?.imageUrl} alt={product?.title} />
             </div>
-            <div className={classes.section}>
+            <div className={classes.infoSection}>
                 <Typography gutterBottom variant="h4" component="h2">
                     {product?.title}
                 </Typography>
