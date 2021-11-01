@@ -15,7 +15,7 @@ const Product = ({ product, setCurrentId }) => {
     const classes = useStyles()
 
     const openProduct = (e) => {
-        history.push(`/product/${product._id}`)
+        history.push(`/${product._id}`)
     }
 
     return (

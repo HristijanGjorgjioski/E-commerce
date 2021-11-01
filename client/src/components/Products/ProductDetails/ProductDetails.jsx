@@ -12,15 +12,14 @@ const ProductDetails = () => {
     const { id } = useParams();
     const classes = useStyles()
     
-    useEffect(() => {
-        dispatch(getProduct(id));
-        console.log(product)
+    useEffect(async () => {
+        await dispatch(getProduct(id));
     }, [id]);
     
     return (
         <Paper style={{ padding: '20px', borderRadius: '15px' }} elevation={6}>
             <div className={classes.imageSection}>
-                <img className={classes.media} src={product.imageUrl} alt={product.title} />
+                <img className={classes.media} src={product?.imageUrl} alt={product.title} />
             </div>
             <div className={classes.section}>
             <Typography gutterBottom variant="h5" component="h2">
