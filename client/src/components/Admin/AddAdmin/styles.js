@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     marginTop: '12%',
-    width: '30%'
+    width: '100%'
   },
   form: {
     display: 'flex',
@@ -22,7 +22,7 @@ export default makeStyles((theme) => ({
   [theme.breakpoints.down('sm')]: {
     paper: {
       padding: theme.spacing(2),
-      marginTop: '30%',
+      marginTop: '3%',
       width: '95%'
     }
   }

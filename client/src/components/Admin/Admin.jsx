@@ -6,6 +6,7 @@ import Products from '../Products/Products'
 import Form from './Form/Form'
 import Header from '../Header/Header'
 import FilterForm from '../FilterForm/FilterForm'
+import AddAdmin from './AddAdmin/AddAdmin'
 
 const Admin = () => {
     const classes = useStyles()
@@ -22,6 +23,7 @@ const Admin = () => {
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
                         <Form currentId={currentId} setCurrentId={setCurrentId} />
+                        <AddAdmin />
                     </Grid>
                 </Grid>
             </Container>
