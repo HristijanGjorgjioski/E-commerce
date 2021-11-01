@@ -18,6 +18,8 @@ const AddAdmin = () => {
         e.preventDefault()
 
         dispatch(createAdmin(adminData, history))
+        setAdminData({ username: '', password: '' })
+        history.push('/admin')
     }
 
     return (
