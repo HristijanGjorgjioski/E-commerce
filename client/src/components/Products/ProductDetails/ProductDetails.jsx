@@ -1,6 +1,6 @@
 import React, { useEffect, } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Button, Checkbox, CircularProgress, FormControl, FormControlLabel, Paper, Typography } from '@material-ui/core';
 
 import { getProduct } from '../../../actions/product';

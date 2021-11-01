@@ -1,6 +1,6 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Card, CardContent, Typography, CardActions, Button, CardMedia, IconButton } from '@material-ui/core'
+import { useDispatch } from 'react-redux'
+import { Card, CardContent, Typography, CardActions, CardMedia, IconButton } from '@material-ui/core'
 import { RemoveShoppingCart, AddShoppingCart } from '@material-ui/icons'
 
 import { addToCart, removeFromCart } from '../../../../actions/cart'
