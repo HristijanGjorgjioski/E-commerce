@@ -20,19 +20,26 @@ export default makeStyles((theme) => ({
     borderRadius: '20px',
     objectFit: 'cover',
     width: '100%',
-    maxHeight: '600px',
+    height: '400px',
   },
   section: {
     display: 'flex',
-    alignItems: 'center',
+    // alignItems: 'center',
     flexDirection: 'column',
     width: '50%',
     borderRadius: '20px',
     margin: '10px',
     flex: 1,
   },
+  sizeGroup: {
+    marginTop: '3%',
+    display: 'flex'
+  },
+  subSizeGroup: {
+    // display: 'flex'
+  },
   btnAddToCart: {
-    marginTop: '20%'
+    marginTop: '18%'
   },
   recommendedPosts: {
     display: 'flex',
@@ -43,4 +50,15 @@ export default makeStyles((theme) => ({
   loadingPaper: {
     display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px', borderRadius: '15px', height: '39vh',
   },
+  [theme.breakpoints.down('sm')]: {
+    paper: {
+      flexDirection: 'column'
+    },
+    imageSection: {
+      width: '100%'
+    },
+    section: {
+      width: '100%'
+    }
+  }
 }));

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { Button, Checkbox, FormControl, FormControlLabel, Paper, Typography } from '@material-ui/core';
+import { Button, Checkbox, CircularProgress, FormControl, FormControlLabel, Paper, Typography } from '@material-ui/core';
 
 import { getProduct } from '../../../actions/product';
 import useStyles from './styles'
@@ -16,6 +16,16 @@ const ProductDetails = () => {
     useEffect(async () => {
         await dispatch(getProduct(id));
     }, [id]);
+
+    if (isLoading) {
+        return (
+          <Paper elevation={6} className={classes.loadingPaper}>
+            <CircularProgress size="7em" />
+          </Paper>
+        );
+    }
+    
+    const recommendedPosts = products.filter(({ _id }) => _id !== product._id);
     
     return (
         <Paper className={classes.paper} elevation={6}>
@@ -23,20 +33,18 @@ const ProductDetails = () => {
                 <img className={classes.media} src={product?.imageUrl} alt={product?.title} />
             </div>
             <div className={classes.section}>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography gutterBottom variant="h4" component="h2">
                     {product?.title}
                 </Typography>
                 <Typography variant="body1" component="h5">
-                    Gender: {product?.gender}
+                    <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel in officia alias quos enim cum velit laudantium, molestias a iste, quo voluptatum id eaque expedita quam hic nostrum sit dignissimos.</strong>
                 </Typography>
-                <Typography variant="body1" component="h2">
-                    Collection: {product?.selection}
-                </Typography>
+                <FormControl className={classes.sizeGroup}>
                     <Typography variant="body1" component="h2">
                         Available sizes:
                     </Typography>
-                <FormControl>
-                    {product?.size?.map((s) =>
+                    <div className={classes.subSizeGroup}>
+                        {product?.size?.map((s) =>
                             <FormControlLabel
                                 style={{ flex: '1 0 21%' }}
                                 key={s}
@@ -45,6 +53,7 @@ const ProductDetails = () => {
                                 control={<Checkbox />}
                             />
                         )}
+                    </div>
                 </FormControl>
                 <Button className={classes.btnAddToCart} variant="outlined" color="inherit" onClick={() => dispatch(addToCart(product))}>
                     Add to cart - ${product?.price}
