@@ -28,8 +28,7 @@ const Header = () => {
           <img src={admin} alt="gjorgjioski admin" height="25px" className={classes.image} />
         </Link>
         <Toolbar className={classes.toolbar}>
-          <Button component={Link} to="/addadmin" variant="contained" className={classes.logout} color="primary">Add Admin</Button>
-            <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
+          <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
         </Toolbar>
     </AppBar>
   )
