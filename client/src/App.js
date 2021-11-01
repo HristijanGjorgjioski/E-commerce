@@ -1,6 +1,6 @@
-import { Container } from '@material-ui/core'
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Container } from '@material-ui/core'
 
 import Admin from './components/Admin/Admin'
 import User from './components/User/User'
