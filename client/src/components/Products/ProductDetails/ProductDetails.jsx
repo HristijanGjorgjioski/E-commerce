@@ -13,8 +13,11 @@ const ProductDetails = () => {
     const { id } = useParams();
     const classes = useStyles()
     
-    useEffect(async () => {
-        await dispatch(getProduct(id));
+    useEffect(() => {
+        const fetchData = async () => {
+            await dispatch(getProduct(id));
+        }
+        fetchData()
     }, [id]);
 
     if (isLoading) {

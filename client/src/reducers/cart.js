@@ -1,13 +1,15 @@
 import { ADD_TO_CART, EMPTY_CART, REMOVE_FROM_CART } from '../constants/actionTypes'
 
-const products = JSON.parse(window.localStorage.getItem('products'))
-const cartReducer = (state = { products, cart: [], currentItem: null }, action) => {
+const cartReducer = (state = { products: [], cart: [], currentItem: null }, action) => {
+    state.products = JSON.parse(window.localStorage.getItem('products'));
     switch (action.type) {
         case ADD_TO_CART:
             // Great Item data from products array
-            const item = state?.products?.data?.find((product) => {
+            console.log(state.products)
+            const item = state.products.find((product) => {
                 return product._id === action.payload.item._id
             });
+            console.log(item, 'itemm')
             // Check if Item is in cart already
             const inCart = state?.cart?.find((item) =>
                 item._id === action.payload.item._id ? true : false

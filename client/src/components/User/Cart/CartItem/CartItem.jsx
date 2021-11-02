@@ -7,6 +7,7 @@ import { addToCart, removeFromCart } from '../../../../actions/cart'
 import useStyles from './styles'
 
 const CartItem = ({ item }) => {
+    console.log(item)
     const classes = useStyles()
     const dispatch = useDispatch()
     

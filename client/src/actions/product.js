@@ -8,7 +8,7 @@ export const getProducts = () => async (dispatch) => {
         const { data } = await api.getProducts()
 
         dispatch({ type: FETCH_ALL, payload: data })
-        await localStorage.setItem('products', JSON.stringify(data))
+        // await localStorage.setItem('products', JSON.stringify(data))
         dispatch({ type: END_LOADING })
     } catch (error) {
         console.log(error)
