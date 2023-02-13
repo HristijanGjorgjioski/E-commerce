@@ -13,7 +13,7 @@ const FilterForm = () => {
 
     useEffect(() => {
         dispatch(searchProduct(searchData))
-    }, [searchData])
+    }, [searchData, dispatch])
 
     return (
         <Paper elevation={6} className={classes.paper}>

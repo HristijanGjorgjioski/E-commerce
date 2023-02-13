@@ -25,7 +25,6 @@ const Form = ({ currentId, setCurrentId }) => {
     useEffect(() => {
         if (!product?.title) clear();
         if (product) setProductData(product);
-        console.log(productData)
     }, [product]);
 
     const handleSubmit = (e) => {

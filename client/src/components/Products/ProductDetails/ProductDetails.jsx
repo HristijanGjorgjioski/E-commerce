@@ -18,7 +18,7 @@ const ProductDetails = () => {
             await dispatch(getProduct(id));
         }
         fetchData()
-    }, [id]);
+    }, [id, dispatch]);
 
     if (isLoading) {
         return (
